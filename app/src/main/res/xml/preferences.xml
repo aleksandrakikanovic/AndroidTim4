@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Refreshing messages"
+        android:key="refresh_settings">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="refresh_messages_checkbox"
+            android:title="Refresh messages"
+            android:summary="Enable refreshing your messages anc choose how often"/>
+
+        <ListPreference
+            android:dependency="refresh_messages_checkbox"
+            android:defaultValue="1"
+            android:entries="@array/prefs_refresh_messages_entries"
+            android:entryValues="@array/prefs_refresh_messages_values"
+            android:key="sort_messages_list"
+            android:title="Refresh every"
+            android:summary="%s"
+             />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Sorting messages"
+        android:key="sort_settings">
+
+        <MultiSelectListPreference
+            android:dialogTitle="Sort messages by date"
+            android:key="sort_messages_choice"
+            android:title="Sort by"
+            android:entries="@array/prefs_sort_messages_entries"
+            android:entryValues="@array/prefs_sort_messages_values"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
