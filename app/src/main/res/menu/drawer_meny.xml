@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile">
+    </item>
+    <item
+        android:id="@+id/emails"
+        android:title="Emails"
+        android:icon="@drawable/ic_emails">
+    </item>
+    <item
+        android:id="@+id/contacts"
+        android:title="Contacts"
+        android:icon="@drawable/ic_contacts">
+    </item>
+    <item
+        android:id="@+id/folders"
+        android:title="Folders"
+        android:icon="@drawable/ic_folders">
+    </item>
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings">
+    </item>
+</menu>
