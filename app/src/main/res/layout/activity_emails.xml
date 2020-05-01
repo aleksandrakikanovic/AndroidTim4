@@ -9,6 +9,29 @@
     android:fitsSystemWindows="true"
     tools:context=".EmailsActivity">
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="395dp"
+        app:layout_constraintBottom_toTopOf = "@+id/nav_contact"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toTopOf = "parent"
+        tools:ignore="MissingConstraints"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/nav_contact"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            android:background="#E4DD98"
+            app:headerLayout="@layout/header"
+            app:itemIconTint="@color/dark_gray" />
+        <!--            app:menu="" -->
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_emails"
         android:layout_width="wrap_content"
@@ -19,6 +42,7 @@
         app:itemIconTint="@color/dark_gray"
         app:itemTextColor="@color/dark_gray"/>
     <!--    app:menu="@menu/drawer_menu" -->
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
