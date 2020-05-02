@@ -5,8 +5,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -54,6 +56,23 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        if(id == R.id.profile){
+            Toast.makeText(getApplicationContext(),"You are already in profile",Toast.LENGTH_SHORT).show();
+        }else if (id == R.id.emails){
+            Intent intent = new Intent(ProfileActivity.this, EmailsActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.contacts){
+            Intent intent = new Intent(ProfileActivity.this, ContactsActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.settings){
+            Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.folders){
+            Intent intent = new Intent(ProfileActivity.this, FoldersActivity.class);
+            startActivity(intent);
+        }
+
         return false;
     }
 }
