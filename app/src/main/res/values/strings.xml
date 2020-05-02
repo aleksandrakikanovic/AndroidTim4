@@ -11,4 +11,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="refresh_messages_checkbox">refresh_messages_checkbox</string>
     <string name="sort_messages_list">sort_messages_list</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
