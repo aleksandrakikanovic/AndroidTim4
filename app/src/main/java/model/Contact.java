@@ -1,14 +1,14 @@
 package model;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private int id;
     private String firstName;
     private String lastName;
     private String displayName;
     private String email;
     private EnumFormat format;
-
-
 
     public Contact(int id, String firstName, String lastName, String displayName, String email, EnumFormat format) {
         this.id = id;

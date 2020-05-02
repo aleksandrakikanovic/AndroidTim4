@@ -8,9 +8,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+
+import model.Folder;
 
 public class FoldersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -27,9 +35,32 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_folders);
         navigationView.setNavigationItemSelectedListener(this);
-
-
+        createFolders();
     }
+
+    public void createFolders(){
+        final ArrayList<Folder> folderList = new ArrayList<>();
+        folderList.add(new Folder(1, "Photos"));
+        folderList.add(new Folder(2, "Audio"));
+        folderList.add(new Folder(3, "Documents"));
+        folderList.add(new Folder(4, "Photos"));
+
+        final ListView list = findViewById(R.id.listview_folders);
+        ArrayAdapter<Folder> arrayAdapter = new ArrayAdapter<Folder>(this, android.R.layout.simple_list_item_1, folderList);
+        list.setAdapter(arrayAdapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Folder f = folderList.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Folder", f);
+                Intent intent = new Intent(FoldersActivity.this, FolderActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+    }
+
     @Override
     public void onStart() {
         super.onStart();

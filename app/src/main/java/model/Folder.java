@@ -1,10 +1,10 @@
 package model;
 
-public class Folder {
+import java.io.Serializable;
+
+public class Folder implements Serializable {
     private int id;
     private String name;
-
-
 
     public Folder(int id, String name) {
         this.id = id;
