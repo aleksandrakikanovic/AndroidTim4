@@ -3,6 +3,11 @@ package com.example.androidtim4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import model.Contact;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -10,6 +15,21 @@ public class ContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+        TextView displayText = findViewById(R.id.displayName);
+        Bundle bundle = getIntent().getExtras();
+        Contact contact = (Contact) bundle.getSerializable("Contact");
+        displayText.setText(contact.getDisplayName());
+
+        TextView firstnameText = findViewById(R.id.firstname_contact);
+        firstnameText.setText(contact.getFirstName());
+
+        TextView lastnameText = findViewById(R.id.lastName_contact);
+        lastnameText.setText(contact.getLastName());
+
+        TextView emailText = findViewById(R.id.email_contact);
+        emailText.setText(contact.getEmail());
+
+
     }
     @Override
     public void onStart() {
