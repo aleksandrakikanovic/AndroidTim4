@@ -1,15 +1,22 @@
 package com.example.androidtim4;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.w3c.dom.Text;
 
 import model.Contact;
 
-public class ContactActivity extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +35,8 @@ public class ContactActivity extends AppCompatActivity {
 
         TextView emailText = findViewById(R.id.email_contact);
         emailText.setText(contact.getEmail());
-
-
     }
+
     @Override
     public void onStart() {
         super.onStart();

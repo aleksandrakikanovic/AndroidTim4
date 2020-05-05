@@ -24,9 +24,10 @@
     <string name="datetime">Date time:</string>
     <string name="subject">Subject:</string>
     <string name="content">Content:</string>
-
-
-
-
+    <string name="newItem">New</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="logout">Logout</string>
 
 </resources>

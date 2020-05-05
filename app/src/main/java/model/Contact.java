@@ -71,13 +71,10 @@ public class Contact implements Serializable {
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", displayName='" + displayName + '\'' +
-                ", email='" + email + '\'' +
-                ", format=" + format +
-                '}';
+        return
+                displayName + "\n" +
+                firstName +  lastName + "\n" +
+                 "email: " + email
+                ;
     }
 }

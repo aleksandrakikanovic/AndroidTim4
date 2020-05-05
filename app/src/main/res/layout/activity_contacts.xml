@@ -5,8 +5,9 @@
     android:id="@+id/contacts_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4DD98"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
+    tools:openDrawer="start"
     tools:context=".ContactsActivity">
 
     <ListView
@@ -14,7 +15,7 @@
         android:layout_width="342dp"
         android:layout_height="546dp"
         android:layout_marginTop="150dp"
-        />
+        android:paddingTop="100dp" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"
@@ -29,13 +30,15 @@
         >
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_contacts"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_gravity="start"
-            android:background="#E4DD98"
-            app:headerLayout="@layout/header"
-            app:itemIconTint="@color/dark_gray" />
-        <!--            app:menu="" />-->
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -44,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#E4DD98"
+        android:background="@color/colorPrimary"
         app:headerLayout="@layout/header"
         app:itemIconTint="@color/dark_gray"
         app:itemTextColor="@color/dark_gray"
