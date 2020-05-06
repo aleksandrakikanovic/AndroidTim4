@@ -28,10 +28,10 @@ public class Folder implements Serializable {
 
     @Override
     public String toString() {
-        return "Folder{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return
+                "id:" + id + "\n" +
+                       "name:" + name
+                ;
     }
 }
 

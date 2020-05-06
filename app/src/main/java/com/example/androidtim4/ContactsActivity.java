@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -62,7 +63,18 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
             }
         });
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(ContactsActivity.this, CreateContactsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
 
     @Override
     public void onStart() {

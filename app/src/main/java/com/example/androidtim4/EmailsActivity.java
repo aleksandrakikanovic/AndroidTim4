@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -57,6 +58,14 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
                 bundle.putSerializable("Email", e);
                 Intent intent = new Intent(EmailsActivity.this, EmailActivity.class);
                 intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(EmailsActivity.this, CreateContactsActivity.class);
                 startActivity(intent);
             }
         });
