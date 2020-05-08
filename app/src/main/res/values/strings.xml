@@ -30,6 +30,8 @@
     <string name="back">Back</string>
     <string name="name">Name</string>
     <string name="logout">Logout</string>
+    <string name="create">Create</string>
+    <string name="search">Search</string>
 
 
 </resources>

@@ -90,16 +90,11 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "id=" + id +
-                ", from='" + from + '\'' +
-                ", to='" + to + '\'' +
-                ", cc='" + cc + '\'' +
-                ", bcc='" + bcc + '\'' +
-                ", dateTime=" + dateTime +
-                ", subject='" + subject + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+        return
+               "from: " + from + "\n" + dateTime + "\n" + "subject: " + subject  + "\n" +  "content: " + content;
+
     }
+
+
 }
 

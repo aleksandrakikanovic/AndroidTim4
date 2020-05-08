@@ -6,34 +6,35 @@
     android:id="@+id/emails_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4DD98"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
     tools:context=".EmailsActivity">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_add"
-            android:layout_margin="16dp"
-            app:backgroundTint="@android:color/holo_red_light"
-            android:layout_gravity="end|bottom"/>
-    </RelativeLayout>
     <ListView
         android:id="@+id/listview_emails"
         android:layout_width="342dp"
         android:layout_height="546dp"
         android:layout_marginTop="150dp"
-        >
+        android:paddingTop="80dp"
+        />
 
 
-    </ListView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@android:color/holo_red_light" />
+        </RelativeLayout>
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"
@@ -47,14 +48,15 @@
         tools:ignore="MissingConstraints"
         >
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_emails"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_gravity="start"
-            android:background="#E4DD98"
-            app:headerLayout="@layout/header"
-            app:itemIconTint="@color/dark_gray" />
-        <!--            app:menu="" -->
+            android:id="@+id/toolbar_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/emails_toolbar_menu" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -63,11 +65,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#E4DD98"
+        android:background="@color/colorPrimary"
         app:headerLayout="@layout/header"
         app:itemIconTint="@color/dark_gray"
         app:itemTextColor="@color/dark_gray"
         app:menu="@menu/drawer_meny" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
