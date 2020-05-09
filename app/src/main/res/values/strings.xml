@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">AndroidTim4</string>
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
@@ -32,6 +32,10 @@
     <string name="logout">Logout</string>
     <string name="create">Create</string>
     <string name="search">Search</string>
+    <string name="delete">Delete</string>
+    <string name="replay">Replay</string>
+    <string name="replay_all">Replay all</string>
+    <string name="forward">Forward</string>
 
 
 </resources>

@@ -104,8 +104,10 @@
         android:text="@string/firstname"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/firstname_contact"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_contact" />
+        app:layout_constraintTop_toBottomOf="@+id/img_contact"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/email_contact"
