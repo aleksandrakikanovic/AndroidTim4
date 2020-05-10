@@ -4,7 +4,7 @@
     <item
         android:id="@+id/delete_email"
         android:title="@string/delete"
-        app:showAsAction="always">
+        app:showAsAction="collapseActionView">
     </item>
 
     <item
@@ -16,7 +16,7 @@
     <item
         android:id="@+id/replay_all_email"
         android:title="@string/replay_all"
-        app:showAsAction="always">
+        app:showAsAction="collapseActionView">
     </item>
 
     <item
