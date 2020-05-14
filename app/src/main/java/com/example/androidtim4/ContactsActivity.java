@@ -42,6 +42,15 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = findViewById(R.id.nav_contacts);
         navigationView.setNavigationItemSelectedListener(this);
         createContacts();
+
+        FloatingActionButton fabc = (FloatingActionButton) findViewById(R.id.fabc);
+        fabc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(ContactsActivity.this, CreateContactsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void createContacts(){
@@ -63,14 +72,7 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
             }
         });
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(ContactsActivity.this, CreateContactsActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
 

@@ -5,29 +5,31 @@
     android:id="@+id/emails_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4DD98"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
     tools:context=".FolderActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="782dp"
+        android:layout_height="93dp"
         android:layout_marginEnd="395dp"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent"
-        tools:ignore="MissingConstraints"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_folder"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_gravity="start"
-            android:background="#E4DD98"
-            app:headerLayout="@layout/header"
-            app:itemIconTint="@color/dark_gray" />
-        <!--            app:menu="" -->
+            android:id="@+id/toolbar_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/folder_toolbar_menu" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -30,40 +30,34 @@
         tools:ignore="MissingConstraints"
         >
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_folders"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
+            android:id="@+id/toolbar_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-           /> android:layout_gravity="start"
-            android:background="#E4DD98"
-            app:headerLayout="@layout/header"
-            app:itemIconTint="@color/dark_gray" />
-<!--            app:menu="" -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/folder_toolbar_menu" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/ic_add"
-                app:backgroundTint="@android:color/holo_red_light"
-                android:layout_margin="16dp"
-                android:layout_gravity="end|bottom"/>
-
-        </RelativeLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="@android:color/holo_red_light"
+            android:layout_margin="16dp"
+            android:layout_gravity="end|bottom"/>
+
+    </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_folders"
         android:layout_width="wrap_content"

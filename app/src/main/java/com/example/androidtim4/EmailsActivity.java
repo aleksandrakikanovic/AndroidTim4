@@ -28,6 +28,7 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,18 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = findViewById(R.id.nav_emails);
         navigationView.setNavigationItemSelectedListener(this);
         createEmails();
+
+        FloatingActionButton fabe = (FloatingActionButton) findViewById(R.id.fabe);
+        fabe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(EmailsActivity.this, CreateContactsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     public void createEmails(){
         final ArrayList<Message> emailsList = new ArrayList<>();
@@ -61,14 +73,7 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
                 startActivity(intent);
             }
         });
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(EmailsActivity.this, CreateContactsActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override

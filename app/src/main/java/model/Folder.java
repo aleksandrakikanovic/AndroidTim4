@@ -29,8 +29,7 @@ public class Folder implements Serializable {
     @Override
     public String toString() {
         return
-                "id:" + id + "\n" +
-                       "name:" + name
+                name
                 ;
     }
 }

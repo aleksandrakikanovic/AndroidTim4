@@ -42,10 +42,10 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
 
     public void createFolders(){
         final ArrayList<Folder> folderList = new ArrayList<>();
-        folderList.add(new Folder(1, "Photos"));
-        folderList.add(new Folder(2, "Audio"));
-        folderList.add(new Folder(3, "Documents"));
-        folderList.add(new Folder(4, "Photos"));
+        folderList.add(new Folder(1, "Sents"));
+        folderList.add(new Folder(2, "Drafts"));
+        folderList.add(new Folder(3, "Received"));
+
 
         final ListView list = findViewById(R.id.listview_folders);
         ArrayAdapter<Folder> arrayAdapter = new ArrayAdapter<Folder>(this, android.R.layout.simple_list_item_1, folderList);
