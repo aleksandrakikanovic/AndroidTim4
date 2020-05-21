@@ -1,13 +1,27 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Contact implements Serializable {
+
+    @SerializedName("id")
     private int id;
+
+    @SerializedName("firstName")
     private String firstName;
+
+    @SerializedName("lastName")
     private String lastName;
+
+    @SerializedName("displayName")
     private String displayName;
+
+    @SerializedName("email")
     private String email;
+
+    @SerializedName("format")
     private EnumFormat format;
 
     public Contact(int id, String firstName, String lastName, String displayName, String email, EnumFormat format) {

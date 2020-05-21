@@ -1,11 +1,20 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class Attachment {
+    @SerializedName("id")
     private int id;
+
+    @SerializedName("date")
     private Date date;
+
+    @SerializedName("type")
     private String type;
+
+    @SerializedName("name")
     private String name;
 
     public Attachment(int id,Date date,String type,String name){

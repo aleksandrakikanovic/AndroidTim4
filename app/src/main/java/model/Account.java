@@ -1,10 +1,22 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Account {
+
+    @SerializedName("id")
     private int id;
+
+    @SerializedName("smtp")
     private String smtp;
+
+    @SerializedName("pop3")
     private String pop3;
+
+    @SerializedName("username")
     private String username;
+
+    @SerializedName("password")
     private String password;
 
     public Account(int id,String smtp,String pop3,String username,String password){
