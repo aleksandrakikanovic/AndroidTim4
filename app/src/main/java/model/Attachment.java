@@ -2,14 +2,15 @@ package model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Base64;
 import java.util.Date;
 
 public class Attachment {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("date")
-    private Date date;
+    @SerializedName("data")
+    private Base64 data;
 
     @SerializedName("type")
     private String type;
@@ -17,9 +18,9 @@ public class Attachment {
     @SerializedName("name")
     private String name;
 
-    public Attachment(int id,Date date,String type,String name){
+    public Attachment(int id,Base64 data,String type,String name){
         this.id = id;
-        this.date = date;
+        this.data = data;
         this.type = type;
         this.name = name;
     }
@@ -32,12 +33,12 @@ public class Attachment {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public Base64 getData() {
+        return data;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setData(Base64 data) {
+        this.data = data;
     }
 
     public String getType() {
@@ -60,7 +61,7 @@ public class Attachment {
     public String toString() {
         return "Attachment{" +
                 "id=" + id +
-                ", date=" + date +
+                ", data=" + data +
                 ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 '}';

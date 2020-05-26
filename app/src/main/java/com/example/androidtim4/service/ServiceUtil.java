@@ -6,8 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceUtil {
 
     private static Retrofit retrofit;
-    //test pre nego sto implementiramo web servis iz ose
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String BASE_URL = "https://primer.com";
 
     public static Retrofit getRetrofit() {
         if (retrofit == null) {

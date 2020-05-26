@@ -2,10 +2,10 @@ package model;
 
 public class Rule {
     private int id;
-    private String condition;
-    private String operation;
+    private EnumCondition condition;
+    private EnumOperation operation;
 
-    public Rule(int id,String condition,String operation){
+    public Rule(int id,EnumCondition condition,EnumOperation operation){
         this.id = id;
         this.condition = condition;
         this.operation = operation;
@@ -19,19 +19,19 @@ public class Rule {
         this.id = id;
     }
 
-    public String getCondition() {
+    public EnumCondition getCondition() {
         return condition;
     }
 
-    public void setCondition(String condition) {
+    public void setCondition(EnumCondition condition) {
         this.condition = condition;
     }
 
-    public String getOperation() {
+    public EnumOperation getOperation() {
         return operation;
     }
 
-    public void setOperation(String operation) {
+    public void setOperation(EnumOperation operation) {
         this.operation = operation;
     }
 

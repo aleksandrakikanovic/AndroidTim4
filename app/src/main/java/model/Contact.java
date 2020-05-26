@@ -22,9 +22,9 @@ public class Contact implements Serializable {
     private String email;
 
     @SerializedName("format")
-    private EnumFormat format;
+    private String format;
 
-    public Contact(int id, String firstName, String lastName, String displayName, String email, EnumFormat format) {
+    public Contact(int id, String firstName, String lastName, String displayName, String email, String format) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -75,11 +75,11 @@ public class Contact implements Serializable {
         this.email = email;
     }
 
-    public EnumFormat getFormat() {
+    public String getFormat() {
         return format;
     }
 
-    public void setFormat(EnumFormat format) {
+    public void setFormat(String format) {
         this.format = format;
     }
 
