@@ -1,7 +1,10 @@
 package model;
+import com.google.gson.annotations.SerializedName;
 
 public class Photo {
+    @SerializedName("id")
     private int id;
+    @SerializedName("path")
     private String path;
 
     public Photo(int id,String path) {

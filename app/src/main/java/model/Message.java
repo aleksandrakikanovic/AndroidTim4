@@ -2,15 +2,32 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
+import com.google.gson.annotations.SerializedName;
 
 public class Message implements Serializable {
+
+    @SerializedName("id")
     private int id;
+
+    @SerializedName("from")
     private String from;
+
+    @SerializedName("to")
     private String to;
+
+    @SerializedName("cc")
     private String cc;
+
+    @SerializedName("bcc")
     private String bcc;
+
+    @SerializedName("dateTime")
     private Date dateTime;
+
+    @SerializedName("subject")
     private String subject;
+
+    @SerializedName("content")
     private String content;
 
     public Message(int id,String from,String to,String cc,String bcc, Date dateTime, String subject,String content) {
