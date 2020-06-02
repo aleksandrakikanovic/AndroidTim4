@@ -55,9 +55,9 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
 
     public void createContacts(){
         final ArrayList<Contact> contactList = new ArrayList<>();
-        contactList.add(new Contact(1,"Nina", "Markovic", "Nina", "nina@gmail.com", EnumFormat.html ));
-        contactList.add(new Contact(2,"Jovana", "Subotic", "Jovana", "jovana@gmail.com", EnumFormat.html ));
-        contactList.add(new Contact(3,"Aleksandra", "Kikanovic", "Aleksandra", "aleksandra@gmail.com", EnumFormat.html  ));
+        contactList.add(new Contact(1,"Nina", "Markovic", "Nina", "nina@gmail.com", "" ));
+        contactList.add(new Contact(2,"Jovana", "Subotic", "Jovana", "jovana@gmail.com",""));
+        contactList.add(new Contact(3,"Aleksandra", "Kikanovic", "Aleksandra", "aleksandra@gmail.com", ""));
         final ListView list = findViewById(R.id.listview_contacts);
         ArrayAdapter<Contact> arrayAdapter = new ArrayAdapter<Contact>(this, android.R.layout.simple_list_item_1, contactList);
         list.setAdapter(arrayAdapter);
