@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+    public static String SYNC_DATA = "SYNC_DATA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
