@@ -39,6 +39,12 @@
     <string name="save_email">Save</string>
     <string name="cancel_email">Cancel</string>
     <string name="back_email">Back</string>
+    <string name="autosync_problem">Automatic Sync problem</string>
+    <string name="no_internet">Bad news, no internet connection</string>
+    <string name="autosync_warning">Automatic Sync warning</string>
+    <string name="connect_to_wifi">Please connect to wifi to sync data</string>
+    <string name="autosync">Automatic Sync</string>
+    <string name="good_news_sync">Good news, everything is sync now.</string>
 
 
 </resources>
