@@ -1,8 +1,15 @@
 package model;
 
-public class Rule {
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+public class Rule implements Serializable {
+    @SerializedName("id")
     private int id;
+    @SerializedName("condition")
     private EnumCondition condition;
+    @SerializedName("operation")
     private EnumOperation operation;
 
     public Rule(int id,EnumCondition condition,EnumOperation operation){

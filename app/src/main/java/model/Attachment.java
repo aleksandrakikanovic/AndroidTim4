@@ -2,10 +2,11 @@ package model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.Base64;
 import java.util.Date;
 
-public class Attachment {
+public class Attachment implements Serializable {
     @SerializedName("id")
     private int id;
 

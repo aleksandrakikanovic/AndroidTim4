@@ -1,7 +1,13 @@
 package model;
 
-public class Tag {
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+public class Tag implements Serializable {
+    @SerializedName("id")
     private int id;
+    @SerializedName("name")
     private String name;
 
     public Tag(int id, String name) {
