@@ -1,5 +1,7 @@
 package com.example.androidtim4.service;
 
+import com.example.androidtim4.serviceInterface.FolderInterface;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -17,6 +19,7 @@ public class ServiceUtil {
         }
         return retrofit;
     }
+    public static FolderInterface reviewerService = retrofit.create(FolderInterface.class);
 
 
 }

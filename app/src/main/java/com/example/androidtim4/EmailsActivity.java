@@ -5,7 +5,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,12 +28,14 @@ import java.util.Date;
 
 import model.Folder;
 import model.Message;
+import sync.SyncReceiver;
+import sync.SyncService;
 
 public class EmailsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +48,16 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = findViewById(R.id.nav_emails);
         navigationView.setNavigationItemSelectedListener(this);
         createEmails();
-
         FloatingActionButton fabe = (FloatingActionButton) findViewById(R.id.fabe);
         fabe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(EmailsActivity.this, CreateContactsActivity.class);
+                Intent intent = new Intent(EmailsActivity.this, CreateEmailActivity.class);
                 startActivity(intent);
             }
         });
+        registerReceiver(SplashActivity.receiver, SplashActivity.filter);
     }
-
-
 
     public void createEmails(){
         final ArrayList<Message> emailsList = new ArrayList<>();

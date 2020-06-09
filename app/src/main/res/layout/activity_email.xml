@@ -10,8 +10,8 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="434dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="395dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
