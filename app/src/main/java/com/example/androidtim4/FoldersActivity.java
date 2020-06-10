@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,12 +16,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.androidtim4.service.ServiceUtil;
+import com.example.androidtim4.serviceInterface.FolderInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Folder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FoldersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -36,31 +44,6 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_folders);
         navigationView.setNavigationItemSelectedListener(this);
-        createFolders();
-    }
-
-
-    public void createFolders(){
-        final ArrayList<Folder> folderList = new ArrayList<>();
-        folderList.add(new Folder(1, "Sents"));
-        folderList.add(new Folder(2, "Drafts"));
-        folderList.add(new Folder(3, "Received"));
-
-
-        final ListView list = findViewById(R.id.listview_folders);
-        ArrayAdapter<Folder> arrayAdapter = new ArrayAdapter<Folder>(this, android.R.layout.simple_list_item_1, folderList);
-        list.setAdapter(arrayAdapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Folder f = folderList.get(position);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("Folder", f);
-                Intent intent = new Intent(FoldersActivity.this, FolderActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,4 +99,5 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         }
         return false;
     }
+
 }

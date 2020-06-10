@@ -23,13 +23,6 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import model.Folder;
-import model.Message;
-import sync.SyncReceiver;
-import sync.SyncService;
 
 public class EmailsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -47,7 +40,6 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_emails);
         navigationView.setNavigationItemSelectedListener(this);
-        createEmails();
         FloatingActionButton fabe = (FloatingActionButton) findViewById(R.id.fabe);
         fabe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,30 +48,7 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
                 startActivity(intent);
             }
         });
-        registerReceiver(SplashActivity.receiver, SplashActivity.filter);
-    }
-
-    public void createEmails(){
-        final ArrayList<Message> emailsList = new ArrayList<>();
-        emailsList.add(new Message(1, "Aleksandra", "Jovana", "projekat", "//", new Date(), "podaci o projektu", "///" ));
-        emailsList.add(new Message(2, "Jovana", "Nina", "projekat", "//", new Date(), "podaci o projektu", "///" ));
-        emailsList.add(new Message(3, "Nina", "Aleksandra", "projekat", "//", new Date(), "podaci o projektu", "///" ));
-        emailsList.add(new Message(4, "Aleksandra", "Nina", "projekat", "//", new Date(), "podaci o projektu", "///" ));
-        final ListView list = findViewById(R.id.listview_emails);
-        ArrayAdapter<Message> arrayAdapter = new ArrayAdapter<Message>(this, android.R.layout.simple_list_item_1, emailsList);
-        list.setAdapter(arrayAdapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Message e = emailsList.get(position);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("Email", e);
-                Intent intent = new Intent(EmailsActivity.this, EmailActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
-
+       // registerReceiver(SplashActivity.receiver, SplashActivity.filter);
     }
 
     @Override

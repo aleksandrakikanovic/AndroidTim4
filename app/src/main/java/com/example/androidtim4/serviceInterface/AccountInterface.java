@@ -19,19 +19,19 @@ public interface AccountInterface {
             "Content-Type:application/json"
     })
 
-    @GET("/accounts") //lista accounta
+    @GET("/mail/accounts") //lista accounta
     Call<List<Account>> getAccounts();
 
-    @GET("/accounts/{id}") //izabrani account
+    @GET("/mail/accounts/{id}") //izabrani account
     Call<Account> getAccount(@Path("id")int id);
 
-    @POST("/accounts") //kreiranje novog objekta
+    @POST("/mail/accounts") //kreiranje novog objekta
     Call<Account> createAccount(@Body Account account);
 
-    @PUT("/accounts") //izmena izabranog accounta
+    @PUT("/mail/accounts") //izmena izabranog accounta
     Call<Account> editAccount(@Body Account account);
 
-    @DELETE("/accounts/{id}") //brisanje accounta
+    @DELETE("/mail/accounts/{id}") //brisanje accounta
     Call<Account> deleteAccount(@Path("id") int id);
 
 }

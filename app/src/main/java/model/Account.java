@@ -6,11 +6,11 @@ import java.io.Serializable;
 
 public class Account implements Serializable {
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("account_id")
+    private int account_id;
 
-    @SerializedName("smtp")
-    private String smtp;
+    @SerializedName("smtpAddress")
+    private String smtpAddress;
 
     @SerializedName("pop3")
     private String pop3;
@@ -21,28 +21,28 @@ public class Account implements Serializable {
     @SerializedName("password")
     private String password;
 
-    public Account(int id,String smtp,String pop3,String username,String password){
-        this.id = id;
-        this.smtp = smtp;
+    public Account(int account_id,String smtpAddress,String pop3,String username,String password){
+        this.account_id = account_id;
+        this.smtpAddress = smtpAddress;
         this.pop3 = pop3;
         this.username = username;
         this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 
-    public String getSmtp() {
-        return smtp;
+    public String getSmtpAddress() {
+        return smtpAddress;
     }
 
-    public void setSmtp(String smtp) {
-        this.smtp = smtp;
+    public void setSmtpAddress(String smtpAddress) {
+        this.smtpAddress = smtpAddress;
     }
 
     public String getPop3() {
@@ -72,8 +72,7 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + id +
-                ", smtp='" + smtp + '\'' +
+                ", smtp='" + smtpAddress + '\'' +
                 ", pop3='" + pop3 + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

@@ -6,36 +6,58 @@ import java.io.Serializable;
 
 public class Folder implements Serializable {
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("folder_id")
+    private int folder_id;
 
-    @SerializedName("name")
-    private String name;
+    @SerializedName("folder_name")
+    private String folder_name;
 
-    public Folder(int id, String name) {
-        this.id = id;
-        this.name = name;
+    @SerializedName("account")
+    private String account;
+
+    public Folder(int folder_id, String folder_name, String account) {
+        this.folder_id = folder_id;
+        this.folder_name = folder_name;
+        this.account=account;
     }
-    public int getId() {
-        return id;
-    }
+    public Folder(String folder_name, String account){
+        this.folder_name=folder_name;
+        this.account=account;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getFolder_id() {
+        return folder_id;
+    }
+
+    public void setFolder_id(int folder_id) {
+        this.folder_id = folder_id;
+    }
+
+    public String getFolder_name() {
+        return folder_name;
+    }
+
+    public void setName(String folder_name) {
+        this.folder_name = folder_name;
+    }
+
+    public void setFolder_name(String folder_name) {
+        this.folder_name = folder_name;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     @Override
     public String toString() {
         return
-                name
+                folder_name
                 ;
     }
 }

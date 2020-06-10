@@ -35,4 +35,6 @@ public class FolderActivity extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
     }
+
+
 }

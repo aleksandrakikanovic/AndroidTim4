@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Message implements Serializable {
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("message_id")
+    private int message_id;
 
     @SerializedName("from")
     private String from;
@@ -30,8 +30,8 @@ public class Message implements Serializable {
     @SerializedName("content")
     private String content;
 
-    public Message(int id,String from,String to,String cc,String bcc, Date dateTime, String subject,String content) {
-        this.id = id;
+    public Message(int message_id,String from,String to,String cc,String bcc, Date dateTime, String subject,String content) {
+        this.message_id = message_id;
         this.from = from;
         this.to = to;
         this.cc = cc;
@@ -40,13 +40,21 @@ public class Message implements Serializable {
         this.subject = subject;
         this.content = content;
     }
-
-    public int getId() {
-        return id;
+    public Message(String from,String to,String cc,String bcc, String subject,String content) {
+        this.from = from;
+        this.to = to;
+        this.cc = cc;
+        this.bcc = bcc;
+        this.subject = subject;
+        this.content = content;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getMessage_id() {
+        return message_id;
+    }
+
+    public void setMessage_id(int message_id) {
+        this.message_id = message_id;
     }
 
     public String getFrom() {

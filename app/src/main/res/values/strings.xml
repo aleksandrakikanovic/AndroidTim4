@@ -37,6 +37,7 @@
     <string name="replay_all">Replay all</string>
     <string name="forward">Forward</string>
     <string name="save_email">Save</string>
+    <string name="send_email">Send</string>
     <string name="cancel_email">Cancel</string>
     <string name="back_email">Back</string>
     <string name="autosync_problem">Automatic Sync problem</string>

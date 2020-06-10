@@ -19,19 +19,19 @@ public interface MessageInterface {
             "Content-Type: application/json"
     })
 
-    @GET("/messages")
+    @GET("/mail/messages")
     Call<List<Message>> getMessages();
 
-    @GET("/messages/{id}")
+    @GET("/mail/messages/{id}")
     Call<Message> getMessage(@Path("id") int id);
 
-    @POST("/messages")
+    @POST("/mail/messages")
     Call<Message> createMessage(@Body Message message);
 
-    @PUT("/messages")
+    @PUT("/mail/messages")
     Call<Message> editMessage(@Body Message message);
 
-    @DELETE("/messages/{id}")
+    @DELETE("/mail/messages/{id}")
     Call<Message> deleteMessage(@Path("id") int id);
 
 }

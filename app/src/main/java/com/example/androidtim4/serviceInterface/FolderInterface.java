@@ -10,6 +10,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface FolderInterface {
 
@@ -18,19 +19,19 @@ public interface FolderInterface {
             "Content-Type: application/json"
     })
 
-    @GET("/folders")
+    @GET("/mail/folders")
     Call<List<Folder>> getFolders();
 
-    @GET("/folders/{id}")
+    @GET("/mail/folders/{id}")
     Call<Folder> getFolder(@Path("id") int id);
 
-    @POST("/folders")
+    @POST("/mail/folders")
     Call<Folder> createFolder(@Body Folder folder);
 
-    @PUT("/folders")
+    @PUT("/mail/folders")
     Call<Folder> editFolder(@Body Folder folder);
 
-    @DELETE("/folders/{id}")
+    @DELETE("/mail/folders/{id}")
     Call<Folder> deleteFolder(@Path("id") int id);
 
 
