@@ -6,17 +6,17 @@ import java.io.Serializable;
 
 public class Contact implements Serializable {
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("contact_id")
+    private int contact_id;
 
-    @SerializedName("firstName")
-    private String firstName;
+    @SerializedName("firstname")
+    private String firstname;
 
-    @SerializedName("lastName")
-    private String lastName;
+    @SerializedName("lastname")
+    private String lastname;
 
-    @SerializedName("displayName")
-    private String displayName;
+    @SerializedName("displayname")
+    private String displayname;
 
     @SerializedName("email")
     private String email;
@@ -24,47 +24,54 @@ public class Contact implements Serializable {
     @SerializedName("format")
     private String format;
 
-    public Contact(int id, String firstName, String lastName, String displayName, String email, String format) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.displayName = displayName;
+    public Contact(int contact_id, String firstname, String lastname, String displayname, String email, String format) {
+        this.contact_id = contact_id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.displayname = displayname;
         this.email = email;
         this.format = format;
 
     }
 
-    public int getId() {
-        return id;
+    public Contact(String firstname, String lastname, String displayname, String email, String format){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.displayname = displayname;
+        this.email = email;
+        this.format = format;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getContact_id() {
+        return contact_id;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setContact_id(int contact_id) {
+        this.contact_id = contact_id;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public String getDisplayname() {
+        return displayname;
+    }
+
+    public void setDisplayname(String displayname) {
+        this.displayname = displayname;
     }
 
     public String getEmail() {
@@ -86,8 +93,8 @@ public class Contact implements Serializable {
     @Override
     public String toString() {
         return
-                displayName + "\n" +
-                firstName +  lastName + "\n" +
+                displayname + "\n" +
+                firstname +  lastname + "\n" +
                  "email: " + email
                 ;
     }

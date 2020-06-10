@@ -25,13 +25,13 @@ public class ContactActivity extends AppCompatActivity{
         TextView displayText = findViewById(R.id.displayName);
         Bundle bundle = getIntent().getExtras();
         Contact contact = (Contact) bundle.getSerializable("Contact");
-        displayText.setText(contact.getDisplayName());
+        displayText.setText(contact.getDisplayname());
 
         TextView firstnameText = findViewById(R.id.firstname_contact);
-        firstnameText.setText(contact.getFirstName());
+        firstnameText.setText(contact.getFirstname());
 
         TextView lastnameText = findViewById(R.id.lastName_contact);
-        lastnameText.setText(contact.getLastName());
+        lastnameText.setText(contact.getLastname());
 
         TextView emailText = findViewById(R.id.email_contact);
         emailText.setText(contact.getEmail());

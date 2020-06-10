@@ -2,8 +2,10 @@ package com.example.androidtim4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -36,6 +38,25 @@ public class EmailActivity extends AppCompatActivity {
         TextView contentText = findViewById(R.id.content_email);
         contentText.setText(message.getContent());
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.replay_email:
+                break;
+            case R.id.forward_email:
+                Intent intent1 = new Intent();
+            case R.id.save_email:
+                Intent intent2 = new Intent();
+            case R.id.back_email:
+                Intent intent = new Intent(EmailActivity.this, EmailsActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return true;
+    }
+
+
     @Override
     public void onStart() {
         super.onStart();

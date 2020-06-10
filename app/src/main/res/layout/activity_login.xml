@@ -83,4 +83,20 @@
         app:layout_constraintTop_toBottomOf="@+id/txtPassword"
         tools:visibility="visible" />
 
+    <Button
+        android:id="@+id/btnRegister"
+        android:text="@string/register"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="532dp"
+        android:layout_marginEnd="243dp"
+        android:layout_marginBottom="151dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

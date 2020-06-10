@@ -14,7 +14,7 @@
         android:layout_height="93dp"
         android:layout_marginEnd="395dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
@@ -162,6 +162,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_contact"
         app:layout_constraintTop_toBottomOf="@+id/displayName" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="95dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="489dp"
+        android:layout_marginEnd="275dp"
+        android:layout_marginBottom="214dp"
+        android:text="@string/format"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/format"
+        android:layout_width="131dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="489dp"
+        android:layout_marginEnd="111dp"
+        android:layout_marginBottom="212dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

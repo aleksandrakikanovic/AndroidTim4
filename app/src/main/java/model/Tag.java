@@ -5,22 +5,22 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Tag implements Serializable {
-    @SerializedName("id")
-    private int id;
+    @SerializedName("tag_id")
+    private int tag_id;
     @SerializedName("name")
     private String name;
 
-    public Tag(int id, String name) {
-        this.id = id;
+    public Tag(int tag_id, String name) {
+        this.tag_id = tag_id;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public int getTag_id() {
+        return tag_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTag_id(int tag_id) {
+        this.tag_id = tag_id;
     }
 
     public String getName() {
@@ -34,7 +34,7 @@ public class Tag implements Serializable {
     @Override
     public String toString() {
         return "Tag{" +
-                "id=" + id +
+                "id=" + tag_id +
                 ", name='" + name + '\'' +
                 '}';
     }
