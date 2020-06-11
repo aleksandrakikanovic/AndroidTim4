@@ -5,49 +5,60 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Rule implements Serializable {
-    @SerializedName("id")
-    private int id;
-    @SerializedName("condition")
-    private EnumCondition condition;
-    @SerializedName("operation")
-    private EnumOperation operation;
+    @SerializedName("rule_id")
+    private int rule_id;
+    @SerializedName("conditionOfRule")
+    private EnumCondition conditionOfRule;
+    @SerializedName("valueOfRule")
+    private String valueOfRule;
+    @SerializedName("operationOfRule")
+    private EnumOperation operationOfRule;
 
     public Rule(int id,EnumCondition condition,EnumOperation operation){
-        this.id = id;
-        this.condition = condition;
-        this.operation = operation;
+        this.rule_id = rule_id;
+        this.conditionOfRule = conditionOfRule;
+        this.operationOfRule = operationOfRule;
     }
 
-    public int getId() {
-        return id;
+    public int getRule_id() {
+        return rule_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRule_id(int rule_id) {
+        this.rule_id = rule_id;
     }
 
-    public EnumCondition getCondition() {
-        return condition;
+    public EnumCondition getConditionOfRule() {
+        return conditionOfRule;
     }
 
-    public void setCondition(EnumCondition condition) {
-        this.condition = condition;
+    public void setConditionOfRule(EnumCondition conditionOfRule) {
+        this.conditionOfRule = conditionOfRule;
     }
 
-    public EnumOperation getOperation() {
-        return operation;
+    public String getValueOfRule() {
+        return valueOfRule;
     }
 
-    public void setOperation(EnumOperation operation) {
-        this.operation = operation;
+    public EnumOperation getOperationOfRule() {
+        return operationOfRule;
+    }
+
+    public void setOperationOfRule(EnumOperation operationOfRule) {
+        this.operationOfRule = operationOfRule;
+    }
+
+    public void setValueOfRule(String valueOfRule) {
+        this.valueOfRule = valueOfRule;
     }
 
     @Override
     public String toString() {
         return "Rule{" +
-                "id=" + id +
-                ", condition='" + condition + '\'' +
-                ", operation='" + operation + '\'' +
+                "id=" + rule_id +
+                ", condition='" + conditionOfRule + '\'' +
+                ", value='" + valueOfRule + '\'' +
+                ", operation='" + operationOfRule + '\'' +
                 '}';
     }
 }

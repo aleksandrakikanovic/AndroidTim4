@@ -24,13 +24,17 @@ public class Contact implements Serializable {
     @SerializedName("format")
     private String format;
 
-    public Contact(int contact_id, String firstname, String lastname, String displayname, String email, String format) {
+    @SerializedName("path")
+    private String path;
+
+    public Contact(int contact_id, String firstname, String lastname, String displayname, String email, String format, String path) {
         this.contact_id = contact_id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.displayname = displayname;
         this.email = email;
         this.format = format;
+        this.path = path;
 
     }
 
@@ -40,6 +44,7 @@ public class Contact implements Serializable {
         this.displayname = displayname;
         this.email = email;
         this.format = format;
+
     }
 
     public int getContact_id() {
@@ -88,6 +93,14 @@ public class Contact implements Serializable {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override

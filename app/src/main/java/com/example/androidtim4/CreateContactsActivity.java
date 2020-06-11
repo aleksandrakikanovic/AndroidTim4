@@ -40,7 +40,7 @@ public class CreateContactsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.save_contact:
-                ContactService.addContact(firstname.getText().toString(),lastname.getText().toString(),displayname.getText().toString(),email.getText().toString(),format.getText().toString() );
+                ContactService.addContact(firstname.getText().toString(),lastname.getText().toString(),displayname.getText().toString(),email.getText().toString(),format.getText().toString());
                 break;
             case R.id.cancel_contact:
                 Intent intent = new Intent(CreateContactsActivity.this, ContactsActivity.class);

@@ -28,7 +28,13 @@ public class Account implements Serializable {
         this.username = username;
         this.password = password;
     }
-
+    public Account(String smtpAddress,String pop3,String username,String password){
+        this.account_id = account_id;
+        this.smtpAddress = smtpAddress;
+        this.pop3 = pop3;
+        this.username = username;
+        this.password = password;
+    }
     public int getAccount_id() {
         return account_id;
     }
