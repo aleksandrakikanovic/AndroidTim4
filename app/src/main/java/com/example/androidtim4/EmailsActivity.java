@@ -93,6 +93,9 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
         }else if (id == R.id.folders){
             Intent intent = new Intent(EmailsActivity.this, FoldersActivity.class);
             startActivity(intent);
+        }else if (id == R.id.logout){
+            Intent intent = new Intent(EmailsActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
         return false;
     }

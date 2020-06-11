@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.androidtim4.adapters.FolderAdapter;
+import com.example.androidtim4.service.FolderService;
 import com.example.androidtim4.service.ServiceUtil;
 import com.example.androidtim4.serviceInterface.FolderInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,17 +38,28 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    public static RecyclerView recyclerView;
+    public static FolderAdapter folderAdapter;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folders);
+
         mDrawerLayout = findViewById(R.id.folders_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_folders);
         navigationView.setNavigationItemSelectedListener(this);
+
+        recyclerView = (RecyclerView)findViewById(R.id.view_folders);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        folderAdapter = new FolderAdapter(getApplicationContext(), FolderService.folders);
+        FolderService.getAllFolders();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +69,6 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
             }
         });
     }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -96,6 +111,9 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
             startActivity(intent);
         }else if (id == R.id.folders){
             Toast.makeText(getApplicationContext(),"You are already in folders",Toast.LENGTH_SHORT).show();
+        }else if (id == R.id.logout){
+            Intent intent = new Intent(FoldersActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
         return false;
     }

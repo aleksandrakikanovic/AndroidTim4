@@ -8,14 +8,14 @@
     </item>
 
     <item
-        android:id="@+id/replay_email"
-        android:title="@string/replay"
+        android:id="@+id/reply_email"
+        android:title="@string/reply"
         app:showAsAction="always">
     </item>
 
     <item
-        android:id="@+id/replay_all_email"
-        android:title="@string/replay_all"
+        android:id="@+id/reply_all_email"
+        android:title="@string/reply_all"
         app:showAsAction="collapseActionView">
     </item>
 
@@ -35,6 +35,7 @@
         android:id="@+id/back_email"
         android:icon="@drawable/ic_back"
         android:title="@string/back"
+        android:orderInCategory="1"
         app:showAsAction="always">
 
     </item>

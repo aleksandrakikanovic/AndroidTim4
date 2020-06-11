@@ -15,6 +15,6 @@
         android:id="@+id/back_email"
         android:icon="@drawable/ic_back"
         android:title="@string/back_email"
-        app:showAsAction="always"></item>
+    app:showAsAction="always"></item>
 
 </menu>

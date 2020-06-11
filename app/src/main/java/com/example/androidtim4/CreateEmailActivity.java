@@ -14,6 +14,7 @@ import com.example.androidtim4.service.MessageService;
 import com.example.androidtim4.service.ServiceUtil;
 import com.example.androidtim4.serviceInterface.FolderInterface;
 import com.example.androidtim4.serviceInterface.MessageInterface;
+import com.example.androidtim4.validation.EmailValidation;
 
 import java.util.Date;
 
@@ -38,7 +39,7 @@ public class CreateEmailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_email);
         androidx.appcompat.widget.Toolbar toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar_create_email);
         setSupportActionBar(toolbar);
-         to = findViewById(R.id.edit_create_email_to);
+        to = findViewById(R.id.edit_create_email_to);
          cc = findViewById(R.id.edit_create_email_cc);
          subject = findViewById(R.id.edit_create_email_subject);
          bcc = findViewById(R.id.edit_create_email_bcc);
@@ -54,7 +55,12 @@ public class CreateEmailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_email:
-                MessageService.sendMail(to.getText().toString(), cc.getText().toString(), bcc.getText().toString(), subject.getText().toString(), content.getText().toString());
+                if (EmailValidation.validationForEmail(to.getText().toString(), subject.getText().toString(), content.getText().toString())
+                ) {
+                    MessageService.sendMail(to.getText().toString(), cc.getText().toString(), bcc.getText().toString(), subject.getText().toString(), content.getText().toString());
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please fill out all fields", Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.cancel_email:
                 //sacuvati u drafts

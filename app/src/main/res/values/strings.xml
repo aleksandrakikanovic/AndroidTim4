@@ -33,8 +33,8 @@
     <string name="create">Create</string>
     <string name="search">Search</string>
     <string name="delete">Delete</string>
-    <string name="replay">Replay</string>
-    <string name="replay_all">Replay all</string>
+    <string name="reply">Reply</string>
+    <string name="reply_all">Reply to all</string>
     <string name="forward">Forward</string>
     <string name="save_email">Save</string>
     <string name="send_email">Send</string>
@@ -49,6 +49,7 @@
     <string name="register">Register</string>
     <string name="password">Password</string>
     <string name="format">Format</string>
+    <string name="compose_hint">Fill this out</string>
 
 
 </resources>

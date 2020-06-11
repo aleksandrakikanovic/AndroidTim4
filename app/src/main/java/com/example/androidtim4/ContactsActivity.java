@@ -41,8 +41,6 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_contacts);
         navigationView.setNavigationItemSelectedListener(this);
-        createContacts();
-
         FloatingActionButton fabc = (FloatingActionButton) findViewById(R.id.fabc);
         fabc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,31 +50,6 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
             }
         });
     }
-
-    public void createContacts(){
-        final ArrayList<Contact> contactList = new ArrayList<>();
-        contactList.add(new Contact(1,"Nina", "Markovic", "Nina", "nina@gmail.com", "" ));
-        contactList.add(new Contact(2,"Jovana", "Subotic", "Jovana", "jovana@gmail.com",""));
-        contactList.add(new Contact(3,"Aleksandra", "Kikanovic", "Aleksandra", "aleksandra@gmail.com", ""));
-        final ListView list = findViewById(R.id.listview_contacts);
-        ArrayAdapter<Contact> arrayAdapter = new ArrayAdapter<Contact>(this, android.R.layout.simple_list_item_1, contactList);
-        list.setAdapter(arrayAdapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Contact c = contactList.get(position);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("Contact", c);
-                Intent intent = new Intent(ContactsActivity.this, ContactActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
-
-    }
-
-
-
 
     @Override
     public void onStart() {
@@ -119,6 +92,9 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
             startActivity(intent);
         }else if (id == R.id.folders){
             Intent intent = new Intent(ContactsActivity.this, FoldersActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.logout) {
+            Intent intent = new Intent(ContactsActivity.this, LoginActivity.class);
             startActivity(intent);
         }
         return false;

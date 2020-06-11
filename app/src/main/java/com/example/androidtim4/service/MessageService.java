@@ -16,7 +16,7 @@ public class MessageService {
 
     public static void sendMail(String to, String cc, String bcc, String subject, String content){
         //dodati login account
-        Message message = new Message("osa.test.aleksandra@gmail.com",to, cc, bcc,subject, content );
+        Message message = new Message("osa.test.aleksandra@gmail.com",to, cc, bcc,subject, content);
         Call<Message> call1 = messageInterface.createMessage(message);
         call1.enqueue(new Callback<Message>() {
             @Override

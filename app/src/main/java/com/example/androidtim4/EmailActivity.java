@@ -18,31 +18,31 @@ public class EmailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
-        TextView fromText = findViewById(R.id.from_email);
-        Bundle bundle = getIntent().getExtras();
-        Message message = (Message) bundle.getSerializable("Email");
-        fromText.setText(message.getFrom());
-
-        TextView bccText = findViewById(R.id.bcc_email);
-        bccText.setText(message.getBcc());
-
-        TextView toText = findViewById(R.id.to_email);
-        toText.setText(message.getTo());
-
-        TextView subjectText = findViewById(R.id.subject_email);
-        toText.setText(message.getSubject());
-
-        TextView ccText = findViewById(R.id.cc_email);
-        ccText.setText(message.getCc());
-
-        TextView contentText = findViewById(R.id.content_email);
-        contentText.setText(message.getContent());
+//        TextView fromText = findViewById(R.id.from_email);
+//        Bundle bundle = getIntent().getExtras();
+//        Message message = (Message) bundle.getSerializable("Email");
+//        fromText.setText(message.getFrom());
+//
+//        TextView bccText = findViewById(R.id.bcc_email);
+//        bccText.setText(message.getBcc());
+//
+//        TextView toText = findViewById(R.id.to_email);
+//        toText.setText(message.getTo());
+//
+//        TextView subjectText = findViewById(R.id.subject_email);
+//        toText.setText(message.getSubject());
+//
+//        TextView ccText = findViewById(R.id.cc_email);
+//        ccText.setText(message.getCc());
+//
+//        TextView contentText = findViewById(R.id.content_email);
+//        contentText.setText(message.getContent());
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.replay_email:
+            case R.id.reply_email:
                 break;
             case R.id.forward_email:
                 Intent intent1 = new Intent();
