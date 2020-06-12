@@ -11,6 +11,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface AccountInterface {
 
@@ -33,5 +34,8 @@ public interface AccountInterface {
 
     @DELETE("/mail/accounts/{id}") //brisanje accounta
     Call<Account> deleteAccount(@Path("id") int id);
+
+    @POST("/mail/accounts/{username}") //login
+    Call<Boolean> logIn(@Body Account account, @Path("username")String username);
 
 }

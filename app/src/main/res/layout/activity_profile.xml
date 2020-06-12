@@ -5,16 +5,11 @@
     android:id="@+id/profile_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4DD98"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context=".ProfileActivity">
 
-    <ListView
-        android:id="@+id/listview_profile"
-        android:layout_width="342dp"
-        android:layout_height="546dp"
-        android:layout_marginTop="150dp"
-        />
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"
@@ -27,12 +22,13 @@
         app:layout_constraintTop_toTopOf = "parent"
         tools:ignore="MissingConstraints"
         >
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_profile"
-            android:layout_height="match_parent"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="#E4DD98"
+            android:background="#FFFFFF"
             app:headerLayout="@layout/header"
             app:itemIconTint="@color/dark_gray" />
         <!--            app:menu="" -->
@@ -48,7 +44,9 @@
         app:headerLayout="@layout/header"
         app:itemIconTint="@color/dark_gray"
         app:itemTextColor="@color/dark_gray"
-        app:menu="@menu/drawer_meny" />
+        app:menu="@menu/drawer_meny" >
+
+    </com.google.android.material.navigation.NavigationView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

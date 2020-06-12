@@ -65,8 +65,6 @@ public class ContactActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     public void onStart() {
         super.onStart();

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidtim4">
-
     <!-- Internet Permission -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,10 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <service
-            android:name=".service.ContactService"
-            android:enabled="true"
-            android:exported="true"></service>
+
+<!--        <service-->
+<!--            android:name=".service.ContactService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true" />-->
 
         <activity android:name=".ContactActivity" />
         <activity android:name=".CreateContactsActivity" />
@@ -33,6 +33,8 @@
         <activity android:name=".FolderActivity" />
         <activity android:name=".FoldersActivity" />
         <activity android:name=".EmailActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".AddAccountActivity"></activity>
 
         <receiver
             android:name=".NetworkChangeReceiver"

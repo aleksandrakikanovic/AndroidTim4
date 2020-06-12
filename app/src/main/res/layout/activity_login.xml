@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btnRegister"
+    android:id="@+id/btnAddAccount"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/txtPassword"
+        android:id="@+id/login_Username"
         android:layout_width="290dp"
         android:layout_height="38dp"
         android:layout_marginStart="53dp"
@@ -30,11 +30,11 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="160dp"
         android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/txtUsername"
+        app:layout_constraintBottom_toTopOf="@+id/login_Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/login_Username" />
 
     <TextView
         android:id="@+id/textView2"
@@ -45,13 +45,13 @@
         android:layout_marginEnd="177dp"
         android:layout_marginBottom="16dp"
         android:text="Username"
-        app:layout_constraintBottom_toTopOf="@+id/txtPassword"
+        app:layout_constraintBottom_toTopOf="@+id/login_Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtUsername"
+        android:id="@+id/login_Password"
         android:layout_width="295dp"
         android:layout_height="57dp"
         android:layout_marginStart="53dp"
@@ -78,21 +78,36 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername"
+        app:layout_constraintTop_toBottomOf="@+id/login_Password"
         tools:visibility="visible" />
 
     <Button
-        android:layout_width="151dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="158dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginBottom="47dp"
+        android:id="@+id/register_btn_loginPage"
+        android:layout_width="119dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="253dp"
+        android:layout_marginBottom="33dp"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/login_Password" />
+
+    <Button
+        android:id="@+id/addAccount_loginPage"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="299dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="40dp"
+        android:text="Add account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_btn_loginPage"
+        app:layout_constraintTop_toBottomOf="@+id/login_Password" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
