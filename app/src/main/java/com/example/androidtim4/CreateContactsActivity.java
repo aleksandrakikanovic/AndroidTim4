@@ -18,29 +18,38 @@ import java.util.zip.Inflater;
 
 public class CreateContactsActivity extends AppCompatActivity {
     public static Context context;
-    TextView firstname;
-    TextView lastname;
     TextView displayname;
     TextView email;
-    TextView format;
+    TextView firstname;
+    TextView lastname;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_contacts);
-        firstname = findViewById(R.id.firstname_contact_add);
-        lastname = findViewById(R.id.lastName_contact_add);
+        androidx.appcompat.widget.Toolbar toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar_create_contact);
+        setSupportActionBar(toolbar);
         displayname = findViewById(R.id.displayName);
         email = findViewById(R.id.email_contact_add);
-        format = findViewById(R.id.format);
+        firstname = findViewById(R.id.firstname_contact_add);
+        lastname = findViewById(R.id.lastName_contact_add);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.create_contact_toolbar_menu, menu);
+        return true;
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.save_contact:
-                ContactService.addContact(firstname.getText().toString(),lastname.getText().toString(),displayname.getText().toString(),email.getText().toString(),format.getText().toString());
+                ContactService.addContact(displayname.getText().toString(),email.getText().toString(), firstname.getText().toString(),lastname.getText().toString());
                 break;
             case R.id.cancel_contact:
                 Intent intent = new Intent(CreateContactsActivity.this, ContactsActivity.class);

@@ -18,18 +18,18 @@ public interface RuleInterface {
             "User-Agent: Mobile-Android",
             "Content-Type:application/json"
     })
-    @GET("/rules") //lista rule
+    @GET("/mail/rules") //lista rule
     Call<List<Rule>> getRules();
 
-    @GET("/rules/{id}") //izabrani rule
+    @GET("/mail/rules/{id}") //izabrani rule
     Call<Rule> getRule(@Path("id")int id);
 
-    @POST("/rules") //kreiranje novog objekta
+    @POST("/mail/rules") //kreiranje novog objekta
     Call<Rule> createRule(@Body Rule rule);
 
-    @PUT("/rules") //izmena izabranog rule
+    @PUT("/mail/rules") //izmena izabranog rule
     Call<Rule> editRule(@Body Rule rule);
 
-    @DELETE("/rules/{id}") //brisanje rule
+    @DELETE("/mail/rules/{id}") //brisanje rule
     Call<Rule> deleteRule(@Path("id") int id);
 }

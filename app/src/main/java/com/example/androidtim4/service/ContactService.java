@@ -18,12 +18,12 @@ public class ContactService {
 
     public static ContactInterface contactInterface = ServiceUtil.getRetrofit().create(ContactInterface.class);
 
-    public static void addContact(String firstname,String lastname, String displayname,String email, String format) {
-        Contact contact = new Contact(firstname,lastname,displayname,email,format);
+    public static void addContact(String displayname, String email, String firstname, String lastname) {
+        Contact contact = new Contact(displayname, email, firstname, lastname,"xxx", "xxx", "xxx");
         Call<Contact> call1 = contactInterface.createContact(contact);
         call1.enqueue(new Callback<Contact>() {
             @Override
-            public void onResponse (Call<Contact> call, Response <Contact> response){
+            public void onResponse (Call<Contact> call, Response<Contact> response){
                 Contact contact1 = response.body();
                 Toast.makeText(CreateContactsActivity.context, "Contact created", Toast.LENGTH_SHORT).show();
             }

@@ -20,19 +20,19 @@ public interface AttachmentInterface {
             "Content-Type:application/json"
     })
 
-    @GET("/attachments") //lista attachmenta
+    @GET("/mail/attachments") //lista attachmenta
     Call<List<Attachment>> getAttachments();
 
-    @GET("/attachments/{id}") //get za izabrani attachment
+    @GET("/mail/attachments/{id}") //get za izabrani attachment
     Call<Attachment> getAttachment(@Path("id")int id);
 
-    @POST("/attachments") //kreira se novi attachment
+    @POST("/mail/attachments") //kreira se novi attachment
     Call<Attachment> createAttachment(@Body Attachment attachment);
 
-    @PUT("/attachments/{id}") //izmena postojeceg objekta attachment
+    @PUT("/mail/attachments/{id}") //izmena postojeceg objekta attachment
     Call<Attachment> editAttachment(@Body Attachment attachment);
 
-    @DELETE("/attachments/{id}") //brisanje izabranog objekta
+    @DELETE("/mail/attachments/{id}") //brisanje izabranog objekta
     Call<Attachment> deleteAttachment(@Path("id") int id);
 
 }

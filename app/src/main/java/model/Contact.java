@@ -27,7 +27,13 @@ public class Contact implements Serializable {
     @SerializedName("path")
     private String path;
 
-    public Contact(int contact_id, String firstname, String lastname, String displayname, String email, String format, String path) {
+    @SerializedName("user")
+    private String user;
+
+    @SerializedName("note")
+    private String note;
+
+    public Contact(int contact_id, String firstname, String lastname, String displayname, String email, String format, String path, String user,String note) {
         this.contact_id = contact_id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -35,15 +41,19 @@ public class Contact implements Serializable {
         this.email = email;
         this.format = format;
         this.path = path;
+        this.user = user;
 
     }
 
-    public Contact(String firstname, String lastname, String displayname, String email, String format){
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Contact(String displayname, String email, String firstname, String lastname, String note, String path, String user){
         this.displayname = displayname;
         this.email = email;
-        this.format = format;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.note = note;
+        this.path = path;
+        this.user = user;
+
 
     }
 
@@ -103,12 +113,26 @@ public class Contact implements Serializable {
         this.path = path;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return
-                displayname + "\n" +
-                firstname +  lastname + "\n" +
-                 "email: " + email
+                displayname
                 ;
     }
 }
