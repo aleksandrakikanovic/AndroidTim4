@@ -21,7 +21,7 @@ public class AccountService {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 Account account1 = response.body();
-               // Toast.makeText(RegisterActivity.context, "Account created", Toast.LENGTH_SHORT).show();
+               Toast.makeText(RegisterActivity.context, "Account created", Toast.LENGTH_SHORT).show();
                 ;
             }
 
