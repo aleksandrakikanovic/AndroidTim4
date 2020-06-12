@@ -16,7 +16,7 @@ public class User implements Serializable {
     @SerializedName("lastname")
     private String lastname;
 
-    public User(int user_id,String username,String password,String firstname,String lastname){
+    public User(String username,String password,String firstname,String lastname){
         this.username=username;
         this.password=password;
         this.firstname=firstname;
