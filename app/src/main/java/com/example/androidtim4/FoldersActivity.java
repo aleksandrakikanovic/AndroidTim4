@@ -58,6 +58,7 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         folderAdapter = new FolderAdapter(getApplicationContext(), FolderService.folders);
+        recyclerView.setAdapter(folderAdapter);
         FolderService.getAllFolders();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

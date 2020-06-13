@@ -32,7 +32,7 @@ public interface FolderInterface {
     Call<Folder> editFolder(@Body Folder folder);
 
     @DELETE("/mail/folders/{id}")
-    Call<Folder> deleteFolder(@Path("id") int id);
+    Call<Boolean> deleteFolder(@Path("id") int id);
 
 
 }

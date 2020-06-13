@@ -1,5 +1,6 @@
 package com.example.androidtim4.service;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.androidtim4.RegisterActivity;
@@ -21,7 +22,7 @@ public class LogInService {
         call1.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                isValid = response.body();
+                isValid = true;
             }
             @Override
             public void onFailure(Call<Boolean> call, Throwable t) {
@@ -29,6 +30,7 @@ public class LogInService {
                 isValid=false;
             }
         });
+        Log.d("TAG", "IS IT VALID = " + isValid);
         return isValid;
     }
 }

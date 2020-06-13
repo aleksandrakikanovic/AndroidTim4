@@ -31,7 +31,10 @@ public interface MessageInterface {
     @PUT("/mail/messages")
     Call<Message> editMessage(@Body Message message);
 
+    @GET("/mail/messages/{id}/{folder_id}")
+    Call<Boolean> addMessageToFolder(@Path("id") int id, @Path("folder_id")int folder_id);
+
     @DELETE("/mail/messages/{id}")
-    Call<Message> deleteMessage(@Path("id") int id);
+    Call<Boolean> deleteMessage(@Path("id") int id);
 
 }

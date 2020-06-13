@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.androidtim4.CreateEmailActivity;
+import com.example.androidtim4.EmailActivity;
 import com.example.androidtim4.EmailsActivity;
 import com.example.androidtim4.serviceInterface.MessageInterface;
 
@@ -20,7 +21,8 @@ import retrofit2.Response;
 public class MessageService {
     public static MessageInterface messageInterface = ServiceUtil.getRetrofit().create(MessageInterface.class);
     public static List<Message> messages = new ArrayList<>();
-
+    public static boolean deleted = false;
+    public static boolean moved = false;
 
     public static void sendMail(String to, String cc, String bcc, String subject, String content){
         //dodati login account
@@ -56,4 +58,35 @@ public class MessageService {
         });return messages;
     }
 
+    public static boolean deleteMail(int id){
+        Call<Boolean> call1 = messageInterface.deleteMessage(id);
+        call1.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                deleted = response.body();
+                Toast.makeText(CreateEmailActivity.context,"Message deleted", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                Toast.makeText(EmailsActivity.context,"Something went wrong.Please try again", Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });return deleted;
+    }
+
+    public static boolean addMessageToFolder(int message_id, int folder_id){
+        Call<Boolean> call1 = messageInterface.addMessageToFolder(message_id, folder_id);
+        call1.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                moved = response.body();
+                Toast.makeText(CreateEmailActivity.context,"Message moved", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                Toast.makeText(EmailActivity.context,"Something went wrong.Please try again", Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });return moved;
+    }
 }

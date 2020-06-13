@@ -1,12 +1,17 @@
 package com.example.androidtim4;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.androidtim4.service.MessageService;
 
 import org.w3c.dom.Text;
 
@@ -14,6 +19,7 @@ import model.Message;
 
 public class EmailActivity extends AppCompatActivity {
 
+    public static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +48,9 @@ public class EmailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.add_to_folder:
+               //choose folder and add message in it
+                break;
             case R.id.reply_email:
                 break;
             case R.id.forward_email:
@@ -55,8 +64,6 @@ public class EmailActivity extends AppCompatActivity {
         }
         return true;
     }
-
-
     @Override
     public void onStart() {
         super.onStart();

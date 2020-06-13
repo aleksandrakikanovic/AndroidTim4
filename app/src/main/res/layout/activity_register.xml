@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/username_Register"
+        android:id="@+id/firstname_Register"
         android:layout_width="290dp"
         android:layout_height="54dp"
         android:layout_marginStart="69dp"
@@ -31,7 +31,7 @@
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="420dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Firstname"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/password_Register"
+        android:id="@+id/lastname_Register"
         android:layout_width="300dp"
         android:layout_height="56dp"
         android:layout_marginStart="65dp"
@@ -47,52 +47,58 @@
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="328dp"
         android:ems="10"
+        android:hint="Lastname"
         android:inputType="textPersonName"
-        android:hint="Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_Register" />
+        app:layout_constraintTop_toBottomOf="@+id/firstname_Register" />
 
     <Button
         android:id="@+id/register_btn"
         android:layout_width="128dp"
         android:layout_height="50dp"
         android:layout_marginStart="141dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="49dp"
         android:layout_marginEnd="142dp"
-        android:layout_marginBottom="225dp"
+        android:layout_marginBottom="51dp"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_Register" />
 
-    <TextView
-        android:id="@+id/firstname_Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="245dp"
-        android:layout_marginBottom="151dp"
-        android:text="TextView"
+    <EditText
+        android:id="@+id/username_Register"
+        android:layout_width="303dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="242dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/lastname_Register" />
 
-    <TextView
-        android:id="@+id/lastname_Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="113dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginBottom="81dp"
-        android:text="TextView"
+    <EditText
+        android:id="@+id/password_Register"
+        android:layout_width="305dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="150dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstname_Register" />
+        app:layout_constraintTop_toBottomOf="@+id/username_Register" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

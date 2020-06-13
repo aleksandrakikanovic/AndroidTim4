@@ -4,6 +4,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.example.androidtim4.CreateFolderActivity;
 import com.example.androidtim4.FoldersActivity;
+import com.example.androidtim4.LoginActivity;
 import com.example.androidtim4.serviceInterface.FolderInterface;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,10 @@ public class FolderService {
 
     public static FolderInterface folderInterface = ServiceUtil.getRetrofit().create(FolderInterface.class);
     public static List<Folder> folders = new ArrayList<Folder>();
+    public static boolean deleted = false;
 
-    public static void addFolder(String name){ //dodati logged in account name
-        Folder folder = new Folder(name, "osa.test.aleksandra@gmail.com");
+    public static void addFolder(String name){
+        Folder folder = new Folder(name, LoginActivity.loggedInUsername);
         Call<Folder> call1 = folderInterface.createFolder(folder);
         call1.enqueue(new Callback<Folder>() {
             @Override
@@ -48,6 +50,21 @@ public class FolderService {
                 Log.d("TAG", "Response = " + t.toString());
             }
         });return folders;
+    }
+
+    public static boolean deleteFolder(int id){
+        Call<Boolean> call1 = folderInterface.deleteFolder(id);
+        call1.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                deleted = response.body();
+                Toast.makeText(CreateFolderActivity.context,"Folder created", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                call.cancel();
+            }
+        });return deleted;
     }
 
 }

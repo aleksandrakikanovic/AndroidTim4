@@ -1,6 +1,5 @@
 package com.example.androidtim4;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,13 +23,12 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_register);
-        username = findViewById(R.id.username_Register);
-        password = findViewById(R.id.password_Register);
+        username = findViewById(R.id.firstname_Register);
+        password = findViewById(R.id.lastname_Register);
         firstname = findViewById(R.id.firstname_Register);
         lastname = findViewById(R.id.lastname_Register);
         register();
     }
-
     public void register(){
         Button register_btn = (Button) findViewById(R.id.register_btn);
         register_btn.setOnClickListener(new View.OnClickListener() {

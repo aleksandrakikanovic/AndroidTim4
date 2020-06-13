@@ -26,6 +26,7 @@
     <string name="content">Content:</string>
     <string name="newItem">New</string>
     <string name="save">Save</string>
+    <string name="addToFolder">Add to folder..</string>
     <string name="cancel">Cancel</string>
     <string name="back">Back</string>
     <string name="name">Name</string>
