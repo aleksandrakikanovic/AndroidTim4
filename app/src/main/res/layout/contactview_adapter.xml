@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contactRecycler_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textview_displayname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:textColor="@color/cardview_dark_background" />
+
+    <TextView
+        android:id="@+id/textview_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:textColor="@color/cardview_dark_background"/>
+
+    <TextView
+        android:id="@+id/textview_firstname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:textColor="@color/cardview_dark_background" />
+
+    <TextView
+        android:id="@+id/textview_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:textColor="@color/cardview_dark_background"/>
+
+
+
+</LinearLayout>

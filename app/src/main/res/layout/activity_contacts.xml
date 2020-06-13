@@ -9,12 +9,18 @@
     android:fitsSystemWindows="true"
     tools:context=".ContactsActivity">
 
-    <ListView
-        android:id="@+id/listview_contacts"
-        android:layout_width="342dp"
-        android:layout_height="546dp"
-        android:layout_marginTop="150dp"
-        android:paddingTop="100dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"/>
+
+<!--    <ListView-->
+<!--        android:id="@+id/listview_contacts"-->
+<!--        android:layout_width="342dp"-->
+<!--        android:layout_height="546dp"-->
+<!--        android:layout_marginTop="150dp"-->
+<!--        android:paddingTop="100dp" />-->
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"

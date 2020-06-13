@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.androidtim4.adapters.ContactAdapter;
+import com.example.androidtim4.service.ContactService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -30,6 +34,8 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    public static RecyclerView recyclerView;
+    public static ContactAdapter contactAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,14 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_contacts);
         navigationView.setNavigationItemSelectedListener(this);
+
+        recyclerView = (RecyclerView)findViewById(R.id.view_contacts);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        contactAdapter = new ContactAdapter(getApplicationContext(), ContactService.contacts);
+        recyclerView.setAdapter(contactAdapter);
+        ContactService.getAllContacts();
+
         FloatingActionButton fabc = (FloatingActionButton) findViewById(R.id.fabc);
         fabc.setOnClickListener(new View.OnClickListener() {
             @Override
