@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -20,6 +21,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.androidtim4.adapters.EmailAdapter;
+import com.example.androidtim4.adapters.FolderAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,7 +31,9 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    Context context = this;
+    public static RecyclerView recyclerView;
+    public static EmailAdapter emailAdapter;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
