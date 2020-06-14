@@ -19,20 +19,20 @@ public interface ContactInterface {
             "Content-Type:application/json"
     })
 
-    @GET("/mail/contacts") //get za contact listu
+    @GET("/mail/contacts")
     Call<List<Contact>> getContacts();
 
-    @GET("/mail/contacts/{id}") //get za izabrani contact
+    @GET("/mail/contacts/{id}")
     Call<Contact> getContact(@Path("id")int id);
 
-    @POST("/mail/contacts") //pravljenje novog objekta
+    @POST("/mail/contacts")
     Call<Contact> createContact(@Body Contact contact);
 
-    @PUT("/mail/contacts") //izmena postojeceg objekta contact
+    @PUT("/mail/contacts")
     Call<Contact> editContact(@Body Contact contact);
 
-    @DELETE("/mail/contacts/{id}") //brisanje izabranog objekta
-    Call<Contact> deleteContact(@Path("id") int id);
+    @DELETE("/mail/contacts/{id}")
+    Call<Boolean> deleteContact(@Path("id") int id);
 
 
 }

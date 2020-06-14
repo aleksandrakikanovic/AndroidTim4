@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 
 import com.example.androidtim4.ContactsActivity;
@@ -23,6 +24,7 @@ public class ContactService {
 
     public static ContactInterface contactInterface = ServiceUtil.getRetrofit().create(ContactInterface.class);
     public static List<Contact> contacts = new ArrayList<Contact>();
+    public static boolean deleted = false;
 
     public static void addContact(String displayname, String email, String firstname, String lastname) {
         Contact contact = new Contact(displayname, email, firstname, lastname,"xxx", "xxx", "xxx");
@@ -57,5 +59,22 @@ public class ContactService {
             }
         });
         return contacts;
+    }
+
+    public static boolean deleteContact(int id){
+        Call<Boolean> call1 = contactInterface.deleteContact(id);
+        call1.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                deleted = response.body();
+                Toast.makeText(CreateContactsActivity.context,"Contact deleted",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                call.cancel();
+            }
+        }); return  deleted;
+
     }
 }
