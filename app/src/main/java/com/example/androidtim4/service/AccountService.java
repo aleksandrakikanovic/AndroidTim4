@@ -2,6 +2,7 @@ package com.example.androidtim4.service;
 
 import android.widget.Toast;
 
+import com.example.androidtim4.AddAccountActivity;
 import com.example.androidtim4.RegisterActivity;
 import com.example.androidtim4.serviceInterface.AccountInterface;
 
@@ -21,7 +22,7 @@ public class AccountService {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 Account account1 = response.body();
-               Toast.makeText(RegisterActivity.context, "Account created", Toast.LENGTH_SHORT).show();
+               Toast.makeText(AddAccountActivity.context, "Account created", Toast.LENGTH_SHORT).show();
                 ;
             }
 
