@@ -13,7 +13,10 @@ public class ServiceUtil {
 
     private static Retrofit retrofit = null;
     //Aleksandra je 13,moj je 19
-    private static final String BASE_URL = "http://192.168.0.19:8080/OSA-MAIL/";
+//    private static final String BASE_URL = "http://192.168.0.19:8080/OSA-MAIL/";
+
+//    Jovana :
+      private static final String BASE_URL = "http://192.168.0.102:8080/OSA-MAIL/";
 
 
     public static Retrofit getRetrofit() {
