@@ -1,6 +1,7 @@
 package com.example.androidtim4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+import com.example.androidtim4.adapters.ContactAdapter;
 import com.example.androidtim4.service.AccountService;
 
+
+
 public class AddAccountActivity extends AppCompatActivity {
+    public static RecyclerView recyclerView;
+    public static ContactAdapter contactAdapter;
     public static Context context;
     TextView usernameregister;
     TextView password;
@@ -46,4 +53,4 @@ public class AddAccountActivity extends AppCompatActivity {
             }
         });
     }
-}
+   }

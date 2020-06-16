@@ -33,7 +33,7 @@ public interface AccountInterface {
     Call<Account> editAccount(@Body Account account);
 
     @DELETE("/mail/accounts/{id}") //brisanje accounta
-    Call<Account> deleteAccount(@Path("id") int id);
+    Call<Boolean> deleteAccount(@Path("id") int id);
 
     @POST("/mail/accounts/{username}") //login
     Call<Boolean> logIn(@Body Account account, @Path("username")String username);

@@ -4,18 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.androidtim4.adapters.AccountAdapter;
+import com.example.androidtim4.adapters.FolderAdapter;
+import com.example.androidtim4.service.AccountService;
+import com.example.androidtim4.service.FolderService;
 import com.google.android.material.navigation.NavigationView;
 
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    public static RecyclerView recyclerView;
+    public static AccountAdapter accountAdapter;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,13 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_profile);
         navigationView.setNavigationItemSelectedListener(this);
+
+        recyclerView = (RecyclerView)findViewById(R.id.view_accounts);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        accountAdapter = new AccountAdapter(getApplicationContext(), AccountService.accounts);
+        recyclerView.setAdapter(accountAdapter);
+        AccountService.getAllAccounts();
 
     }
     @Override
