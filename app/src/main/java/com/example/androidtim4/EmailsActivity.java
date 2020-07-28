@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlarmManager;
@@ -21,8 +22,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.androidtim4.adapters.ContactAdapter;
 import com.example.androidtim4.adapters.EmailAdapter;
 import com.example.androidtim4.adapters.FolderAdapter;
+import com.example.androidtim4.service.ContactService;
+import com.example.androidtim4.service.FolderService;
+import com.example.androidtim4.service.MessageService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -53,6 +58,13 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
                 startActivity(intent);
             }
         });
+        recyclerView = (RecyclerView)findViewById(R.id.view_emails);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        emailAdapter = new EmailAdapter(getApplicationContext(), MessageService.messages);
+        recyclerView.setAdapter(emailAdapter);
+        MessageService.getAllMessages();
+
        // registerReceiver(SplashActivity.receiver, SplashActivity.filter);
     }
 

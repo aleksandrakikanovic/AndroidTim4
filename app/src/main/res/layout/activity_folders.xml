@@ -9,12 +9,11 @@
     android:fitsSystemWindows="true"
     tools:context=".FoldersActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view_folders"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="200dp"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_layout"
@@ -36,6 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:titleMarginBottom="20dp"
             app:menu="@menu/folder_toolbar_menu" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

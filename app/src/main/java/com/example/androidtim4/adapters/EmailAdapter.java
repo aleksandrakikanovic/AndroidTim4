@@ -37,7 +37,7 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder
 
     @Override
     public EmailAdapter.MyviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.messageview_adapter,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.message_vieww_adapter,parent,false);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,11 +49,11 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder
 
     @Override
     public void onBindViewHolder(EmailAdapter.MyviewHolder holder, int position) {
-        holder.dateTime.setText(messageList.get(position).getDateTime().toString());
-        holder.from.setText(messageList.get(position).getFrom());
+    //    holder.dateTime.setText(messageList.get(position).getDateTime().toString());
+      //  holder.from.setText(messageList.get(position).getFrom());
         holder.subject.setText(messageList.get(position).getSubject());
-        holder.content.setText(messageList.get(position).getContent());
-        holder.tag.setText(messageList.get(position).getCc());
+        //holder.content.setText(messageList.get(position).getContent());
+        //holder.tag.setText(messageList.get(position).getCc());
 
     }
 
@@ -75,11 +75,11 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder
 
         public MyviewHolder(View itemView) {
             super(itemView);
-            dateTime = (TextView)itemView.findViewById(R.id.textview_DateTime);
-            from = (TextView)itemView.findViewById(R.id.textView_From);
+          //  dateTime = (TextView)itemView.findViewById(R.id.textview_DateTime);
+           // from = (TextView)itemView.findViewById(R.id.textView_From);
             subject = (TextView)itemView.findViewById(R.id.textView_Subject);
-            content = (TextView)itemView.findViewById(R.id.textView_Content);
-            tag = (TextView)itemView.findViewById(R.id.textView_Tag);
+           // content = (TextView)itemView.findViewById(R.id.textView_Content);
+           // tag = (TextView)itemView.findViewById(R.id.textView_Tag);
         }
     }
 }

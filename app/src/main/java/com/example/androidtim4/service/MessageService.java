@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.example.androidtim4.CreateEmailActivity;
 import com.example.androidtim4.EmailActivity;
 import com.example.androidtim4.EmailsActivity;
+import com.example.androidtim4.LoginActivity;
 import com.example.androidtim4.serviceInterface.MessageInterface;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class MessageService {
 
     public static void sendMail(String to, String cc, String bcc, String subject, String content){
         //dodati login account
-        Message message = new Message("osa.test.aleksandra@gmail.com",to, cc, bcc,subject, content);
+        Message message = new Message(LoginActivity.loggedInUsername,to, cc, bcc,subject, content);
         Call<Message> call1 = messageInterface.createMessage(message);
         call1.enqueue(new Callback<Message>() {
             @Override
@@ -36,7 +37,7 @@ public class MessageService {
             }
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
-               // Toast.makeText(CreateEmailActivity.context,"Something went wrong.Please try again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateEmailActivity.context,"Something went wrong.Please try again", Toast.LENGTH_SHORT).show();
                 call.cancel();
             }
         });

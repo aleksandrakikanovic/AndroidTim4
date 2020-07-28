@@ -57,7 +57,7 @@ public class ContactActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_contact:
-              //  ContactService.addContact(displayText.getText().toString(), emailText.getText().toString(), firstnameText.getText().toString(), lastnameText.getText().toString());
+                ContactService.addContact(displayText.getText().toString(), emailText.getText().toString(), firstnameText.getText().toString(), lastnameText.getText().toString());
                 break;
             default:
                 break;
