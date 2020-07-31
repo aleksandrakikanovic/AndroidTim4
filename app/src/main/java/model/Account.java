@@ -15,6 +15,9 @@ public class Account implements Serializable {
     @SerializedName("pop3")
     private String pop3;
 
+    @SerializedName("user_username")
+    private String user_username;
+
     @SerializedName("username")
     private String username;
 
@@ -28,16 +31,16 @@ public class Account implements Serializable {
         this.username = username;
         this.password = password;
     }
-    public Account(String smtpAddress,String pop3,String username,String password){
-        this.account_id = account_id;
-        this.smtpAddress = smtpAddress;
-        this.pop3 = pop3;
-        this.username = username;
-        this.password = password;
-    }
+
     public Account(String username, String password){
         this.password=password;
         this.username=username;
+    }
+    public Account(String user_username, String email, String username, String password){
+        this.user_username=user_username;
+        this.smtpAddress=email;
+        this.username=username;
+        this.password=password;
     }
     public int getAccount_id() {
         return account_id;
@@ -81,7 +84,7 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "Account " +
                 ", smtp='" + smtpAddress + '\'' +
                 ", pop3='" + pop3 + '\'' +
                 ", username='" + username + '\'' +

@@ -37,7 +37,7 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder
 
     @Override
     public EmailAdapter.MyviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.message_vieww_adapter,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.messageview_adapter,parent,false);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
