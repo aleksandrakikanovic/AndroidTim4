@@ -10,14 +10,13 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidtim4.EmailActivity;
+
 import com.example.androidtim4.EmailsActivity;
-import com.example.androidtim4.FoldersActivity;
 import com.example.androidtim4.R;
 
 import java.util.List;
 
-import model.Folder;
+
 import model.Message;
 
 public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder> {
@@ -49,11 +48,10 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder
 
     @Override
     public void onBindViewHolder(EmailAdapter.MyviewHolder holder, int position) {
-    //    holder.dateTime.setText(messageList.get(position).getDateTime().toString());
-      //  holder.from.setText(messageList.get(position).getFrom());
-        holder.subject.setText(messageList.get(position).getSubject());
-        //holder.content.setText(messageList.get(position).getContent());
-        //holder.tag.setText(messageList.get(position).getCc());
+     holder.dateTime.setText(messageList.get(position).getDateTime().toString());
+       holder.from.setText(messageList.get(position).getFrom());
+        holder.subject.setText(messageList.get(position).getSubject());holder.content.setText(messageList.get(position).getContent());
+        holder.tag.setText(messageList.get(position).getCc());
 
     }
 
@@ -75,11 +73,11 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.MyviewHolder
 
         public MyviewHolder(View itemView) {
             super(itemView);
-          //  dateTime = (TextView)itemView.findViewById(R.id.textview_DateTime);
-           // from = (TextView)itemView.findViewById(R.id.textView_From);
+           dateTime = (TextView)itemView.findViewById(R.id.textView_DateTime);
+            from = (TextView)itemView.findViewById(R.id.textView_From);
             subject = (TextView)itemView.findViewById(R.id.textView_Subject);
-           // content = (TextView)itemView.findViewById(R.id.textView_Content);
-           // tag = (TextView)itemView.findViewById(R.id.textView_Tag);
+            content = (TextView)itemView.findViewById(R.id.textView_Content);
+            tag = (TextView)itemView.findViewById(R.id.textView_Tag);
         }
     }
 }
