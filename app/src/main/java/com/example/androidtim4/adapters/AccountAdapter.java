@@ -22,7 +22,7 @@ public class AccountAdapter  extends RecyclerView.Adapter<AccountAdapter.MyviewH
     Context context;
     List<Account> accountList;
 
-
+//xxxxx
 
     public AccountAdapter(Context context, List<Account> accountList) {
         this.context = context;
