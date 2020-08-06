@@ -25,6 +25,24 @@ public class MessageService {
     public static boolean deleted = false;
     public static boolean moved = false;
 
+    public static List<Message> getAllMessages(){
+        Call<List<Message>> call = messageInterface.getMessages();
+        call.enqueue(new Callback<List<Message>>() {
+            @Override
+            public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
+                messages = response.body();
+                Log.d("TAG","Response = " + messages);
+                EmailsActivity.recyclerView.setAdapter(EmailsActivity.emailAdapter);
+                EmailsActivity.emailAdapter.setMessageList(messages);
+            }
+
+            @Override
+            public void onFailure(Call<List<Message>> call, Throwable t) {
+                Log.d("TAG","Response = " + t.toString());
+            }
+        }); return messages;
+    }
+
     public static void sendMail(String to, String cc, String bcc, String subject, String content){
         //dodati login account
         Message message = new Message(LoginActivity.loggedInUsername,to, cc, bcc,subject, content);
@@ -41,22 +59,6 @@ public class MessageService {
                 call.cancel();
             }
         });
-    }
-    public static List<Message> getAllMessages() {
-        Call<List<Message>> call = messageInterface.getMessages();
-        call.enqueue(new Callback<List<Message>>() {
-            @Override
-            public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
-                messages = response.body();
-                Log.d("TAG", "Response = " + messages);
-                EmailsActivity.recyclerView.setAdapter(EmailsActivity.emailAdapter);
-                EmailsActivity.emailAdapter.setMessageList(messages);
-            }
-            @Override
-            public void onFailure(Call<List<Message>> call, Throwable t) {
-                Log.d("TAG", "Response = " + t.toString());
-            }
-        });return messages;
     }
 
     public static boolean deleteMail(int id){
