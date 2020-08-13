@@ -20,7 +20,7 @@ public class FolderService {
     public static boolean deleted = false;
 
     public static void addFolder(String name){
-        Folder folder = new Folder(name, LoginActivity.loggedInUsername);
+        Folder folder = new Folder(name, LoginActivity.loggedInUserUsername);
         Call<Folder> call1 = folderInterface.createFolder(folder);
         call1.enqueue(new Callback<Folder>() {
             @Override

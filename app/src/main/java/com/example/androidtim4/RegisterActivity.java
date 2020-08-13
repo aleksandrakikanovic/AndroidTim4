@@ -18,13 +18,12 @@ public class RegisterActivity extends AppCompatActivity {
     TextView firstname;
     TextView lastname;
 
-
     @Override
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_register);
-        username = findViewById(R.id.firstname_Register);
-        password = findViewById(R.id.lastname_Register);
+        username = findViewById(R.id.username_Register);
+        password = findViewById(R.id.password_Register);
         firstname = findViewById(R.id.firstname_Register);
         lastname = findViewById(R.id.lastname_Register);
         register();
@@ -38,10 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
-
 
     @Override
     public void onStart() {

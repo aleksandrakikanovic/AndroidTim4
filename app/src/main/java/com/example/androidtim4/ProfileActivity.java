@@ -43,8 +43,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         recyclerView.setLayoutManager(layoutManager);
         accountAdapter = new AccountAdapter(getApplicationContext(), AccountService.accounts);
         recyclerView.setAdapter(accountAdapter);
-        AccountService.getAllAccounts();
-
+        AccountService.getAllAccounts(LoginActivity.loggedInUserUsername);
     }
     @Override
     public void onStart() {

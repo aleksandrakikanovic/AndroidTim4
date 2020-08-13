@@ -14,12 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-
-<!--        <service-->
-<!--            android:name=".service.ContactService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true" />-->
-
+        <activity android:name=".UserAccountsActivity"></activity>
+        <!-- <service -->
+        <!-- android:name=".service.ContactService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" /> -->
         <activity android:name=".ContactActivity" />
         <activity android:name=".CreateContactsActivity" />
         <activity android:name=".ContactsActivity" />
@@ -34,7 +33,7 @@
         <activity android:name=".FoldersActivity" />
         <activity android:name=".EmailActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AddAccountActivity"></activity>
+        <activity android:name=".AddAccountActivity" />
 
         <receiver
             android:name=".NetworkChangeReceiver"

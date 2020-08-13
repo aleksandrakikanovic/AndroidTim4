@@ -14,7 +14,7 @@ public class ServiceUtil {
     private static Retrofit retrofit = null;
     //Aleksandra 13,Nina 19
     //Jovana : 192.168.0.107
-      private static final String BASE_URL = "http://192.168.0.107:8080/mail/";
+      private static final String BASE_URL = "http://192.168.0.13:8080/mail/";
 
 
     public static Retrofit getRetrofit() {

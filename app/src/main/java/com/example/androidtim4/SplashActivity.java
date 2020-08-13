@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
                 if(NetworkChangeReceiver.isNetworkAvailable(context)){
-                    Intent intent = new Intent(SplashActivity.this, ContactsActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }else{
                    alert();

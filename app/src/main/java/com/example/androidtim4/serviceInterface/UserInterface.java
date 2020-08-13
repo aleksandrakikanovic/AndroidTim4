@@ -22,8 +22,8 @@ public interface UserInterface {
     @GET("/mail/users") //lista usera
     Call<List<User>> getUsers();
 
-    @GET("/mail/users/{id}") //izabrani user
-    Call<User> getUser(@Path("id")int id);
+    @GET("/mail/users/{username}") //izabrani user
+    Call<User> getUser(@Path("username")String username);
 
     @POST("/mail/users") //kreiranje novog objekta
     Call<User> createUser(@Body User user);
@@ -34,8 +34,8 @@ public interface UserInterface {
     @DELETE("/mail/users/{id}") //brisanje usera
     Call<User> deleteUser(@Path("id") int id);
 
-    @POST("/mail/users/{username}") //login
-    Call<Boolean> logIn(@Body User user, @Path("username")String username);
+//    @POST("/mail/users/{username}") //login
+//    Call<Boolean> logIn(@Body User user, @Path("username")String username);
 
 }
 

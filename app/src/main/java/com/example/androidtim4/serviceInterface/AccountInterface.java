@@ -3,6 +3,7 @@ package com.example.androidtim4.serviceInterface;
 import java.util.List;
 
 import model.Account;
+import model.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -20,11 +21,11 @@ public interface AccountInterface {
             "Content-Type:application/json"
     })
 
-    @GET("/mail/accounts") //lista accounta
-    Call<List<Account>> getAccounts();
+    @GET("/mail/accounts/{username}") //lista accounta
+    Call<List<Account>> getAccounts(@Path("username") String username);
 
-    @GET("/mail/accounts/{id}") //izabrani account
-    Call<Account> getAccount(@Path("id")int id);
+//    @GET("/mail/accounts/{id}") //izabrani account
+//    Call<Account> getAccount(@Path("id")int id);
 
     @POST("/mail/accounts") //kreiranje novog objekta
     Call<Account> createAccount(@Body Account account);
@@ -34,8 +35,5 @@ public interface AccountInterface {
 
     @DELETE("/mail/accounts/{id}") //brisanje accounta
     Call<Boolean> deleteAccount(@Path("id") int id);
-
-    @POST("/mail/accounts/{username}") //login
-    Call<Boolean> logIn(@Body Account account, @Path("username")String username);
 
 }
