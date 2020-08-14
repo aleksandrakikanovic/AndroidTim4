@@ -22,7 +22,7 @@ public interface AccountInterface {
     })
 
     @GET("/mail/accounts/{username}") //lista accounta
-    Call<List<Account>> getAccounts(@Path("username") String username);
+    Call<List<String>> getAccounts(@Path("username") String username);
 
 //    @GET("/mail/accounts/{id}") //izabrani account
 //    Call<Account> getAccount(@Path("id")int id);

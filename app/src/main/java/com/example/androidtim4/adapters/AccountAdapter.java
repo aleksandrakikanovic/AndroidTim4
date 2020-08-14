@@ -20,16 +20,16 @@ import model.Folder;
 
 public class AccountAdapter  extends RecyclerView.Adapter<AccountAdapter.MyviewHolder>{
     Context context;
-    List<Account> accountList;
+    List<String> accountList;
 
 //xxxxx
 
-    public AccountAdapter(Context context, List<Account> accountList) {
+    public AccountAdapter(Context context, List<String> accountList) {
         this.context = context;
         this.accountList = accountList;
     }
 
-    public void setAccountList(List<Account> accountList) {
+    public void setAccountList(List<String> accountList) {
         this.accountList = accountList;
         notifyDataSetChanged();
     }
@@ -48,7 +48,7 @@ public class AccountAdapter  extends RecyclerView.Adapter<AccountAdapter.MyviewH
 
     @Override
     public void onBindViewHolder(AccountAdapter.MyviewHolder holder, int position) {
-        holder.account_name.setText(accountList.get(position).getUsername());
+        holder.account_name.setText(accountList.get(position));
     }
 
     @Override

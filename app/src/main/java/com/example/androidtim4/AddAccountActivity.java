@@ -21,7 +21,6 @@ public class AddAccountActivity extends AppCompatActivity {
     public static RecyclerView recyclerView;
     public static ContactAdapter contactAdapter;
     public static Context context;
-    TextView usernameregister;
     TextView password;
     TextView usernameaccount;
     TextView emailAcc;
@@ -39,7 +38,7 @@ public class AddAccountActivity extends AppCompatActivity {
         Button addAccount_btn = (Button) findViewById(R.id.addAccount_btn);
         addAccount_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                AccountService.addAccount(usernameregister.getText().toString(),password.getText().toString(),usernameaccount.getText().toString(),emailAcc.getText().toString());
+                AccountService.addAccount(LoginActivity.loggedInUserUsername,password.getText().toString(),usernameaccount.getText().toString(),emailAcc.getText().toString());
                 Intent intent = new Intent(AddAccountActivity.this, LoginActivity.class);
                 startActivity(intent);
                 //servis, nazad na login

@@ -5,11 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserAccountsActivity">
-    <androidx.recyclerview.widget.RecyclerView
+
+    <ListView
         android:id="@+id/view_user_accounts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"/>
+        android:layout_width="342dp"
+        android:layout_height="546dp"
+        android:layout_marginTop="240dp"
+        android:paddingTop="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/addAccount"
+        android:layout_width="158dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="116dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/view_user_accounts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/view_user_accounts"
+        app:layout_constraintTop_toBottomOf="@+id/view_user_accounts"
+        app:layout_constraintVertical_bias="0.309" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
