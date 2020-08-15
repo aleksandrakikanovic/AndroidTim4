@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidtim4.EmailActivity;
-import com.example.androidtim4.EmailsActivity;
-import com.example.androidtim4.FolderActivity;
 import com.example.androidtim4.FoldersActivity;
 import com.example.androidtim4.R;
 import java.util.List;
@@ -68,4 +66,5 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
             folder_name = (TextView)itemView.findViewById(R.id.textview_folderName);
         }
     }
+
 }
