@@ -9,21 +9,20 @@ public class Folder implements Serializable {
     @SerializedName("folder_id")
     private int folder_id;
 
-    @SerializedName("foldername")
-    private String foldername;
+    @SerializedName("folder_name")
+    private String folder_name;
 
     @SerializedName("account")
     private String account;
 
-    public Folder(int folder_id, String foldername, String account) {
+    public Folder(int folder_id, String folder_name, String account) {
         this.folder_id = folder_id;
-        this.foldername = foldername;
+        this.folder_name = folder_name;
         this.account=account;
     }
-    public Folder(String foldername, String account){
-        this.foldername=foldername;
+    public Folder(String folder_name, String account){
+        this.folder_name=folder_name;
         this.account=account;
-
     }
 
     public int getFolder_id() {
@@ -35,15 +34,7 @@ public class Folder implements Serializable {
     }
 
     public String getFolder_name() {
-        return foldername;
-    }
-
-    public void setName(String foldername) {
-        this.foldername = foldername;
-    }
-
-    public void setFoldername(String foldername) {
-        this.foldername = foldername;
+        return folder_name;
     }
 
     public String getAccount() {
@@ -54,10 +45,14 @@ public class Folder implements Serializable {
         this.account = account;
     }
 
+    public void setFolder_name(String folder_name) {
+        this.folder_name = folder_name;
+    }
+
     @Override
     public String toString() {
         return
-                foldername
+                folder_name
                 ;
     }
 }

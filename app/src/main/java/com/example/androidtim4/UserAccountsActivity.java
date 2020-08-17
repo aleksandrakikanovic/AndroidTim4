@@ -30,7 +30,6 @@ import model.User;
 public class UserAccountsActivity extends AppCompatActivity {
     public static Context context;
     public static String loggedInAccountName;
-    public static List<String> userAccounts = new ArrayList<>();
     Button addAccount;
     public static ListView list;
     public static ArrayAdapter arrayAdapter;
@@ -41,22 +40,23 @@ public class UserAccountsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_accounts);
         list = findViewById(R.id.view_user_accounts);
         addAccount = findViewById(R.id.addAccount);
-        AccountService.getAllAccounts(LoginActivity.loggedInUserUsername);
+        adapter();
     }
 
     public void adapter(){
-        arrayAdapter = new ArrayAdapter<String>(UserAccountsActivity.context, android.R.layout.simple_list_item_1, AccountService.accounts);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, AccountService.accounts);
         list.setAdapter(arrayAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                loggedInAccountName = userAccounts.get(position);
+                loggedInAccountName = AccountService.accounts.get(position);
+                Log.d("tag", "this is acc name: " + loggedInAccountName);
                 Intent intent = new Intent(UserAccountsActivity.this, EmailsActivity.class);
                 startActivity(intent);
             }
         });
         addAccount.setVisibility(View.GONE);
-        if(userAccounts.isEmpty()){
+        if(AccountService.accounts.isEmpty()){
             addAccount.setVisibility(View.VISIBLE);
             addAccount.setOnClickListener(new View.OnClickListener() {
                 @Override

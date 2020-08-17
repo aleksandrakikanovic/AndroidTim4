@@ -10,7 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidtim4.service.AccountService;
 import com.example.androidtim4.service.LogInService;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import model.User;
 
@@ -21,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView password;
     public static Context context;
     public static User user;
+    public static boolean exists;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +40,23 @@ public class LoginActivity extends AppCompatActivity {
         user = new User(username.getText().toString(),password.getText().toString() );
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (LogInService.logIn(username.getText().toString())){
-                    Intent intent = new Intent(LoginActivity.this, UserAccountsActivity.class);
-                    startActivity(intent);
-                    loggedInUserUsername = username.getText().toString();
-                }else{
-                    Toast.makeText(LoginActivity.this, "Wrong username or password.Try again!", Toast.LENGTH_SHORT).show();
-                }
+                exists = LogInService.logIn(username.getText().toString());
+                Toast.makeText(getApplicationContext(), "Please wait...", Toast.LENGTH_SHORT).show();
+                        if (exists==true){
+                            loggedInUserUsername = username.getText().toString();
+                            AccountService.getAllAccounts(loggedInUserUsername);
+                            new Timer().schedule(new TimerTask() {
+                                @Override
+                                public void run() {
+                                    Intent intent = new Intent(LoginActivity.this, UserAccountsActivity.class);
+                                    startActivity(intent);
+                                }
+                            }, 500);
+                        }
+//                    }
+//                if(exists==false){
+//                    Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT);
+//                }
             }
         });
     }
