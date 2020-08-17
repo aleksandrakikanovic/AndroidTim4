@@ -34,13 +34,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FoldersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class FoldersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     public static RecyclerView recyclerView;
     public static FolderAdapter folderAdapter;
     public static Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,12 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
                 startActivity(intent);
             }
         });
-    }
+
+
+        }
+
+
+
     @Override
     public void onStart() {
         super.onStart();
@@ -119,4 +125,6 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         return false;
     }
 
-}
+    }
+
+

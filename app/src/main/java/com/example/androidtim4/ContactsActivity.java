@@ -26,16 +26,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Contact;
 import model.EnumFormat;
 
-public class ContactsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ContactsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     public static RecyclerView recyclerView;
     public static ContactAdapter contactAdapter;
+    List<Contact> contactList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -113,6 +116,7 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         }
         return false;
     }
+
 
 
 }

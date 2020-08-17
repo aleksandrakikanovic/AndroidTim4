@@ -35,7 +35,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
 
     @Override
     public FolderAdapter.MyviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.emailview_adapter,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.folderview_adapter,parent,false);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +48,9 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
     @Override
     public void onBindViewHolder(FolderAdapter.MyviewHolder holder, int position) {
         holder.folder_name.setText(folderList.get(position).getFolder_name());
+
     }
+
 
     @Override
     public int getItemCount() {
