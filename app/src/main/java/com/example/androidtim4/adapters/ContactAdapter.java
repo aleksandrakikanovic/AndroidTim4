@@ -70,7 +70,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
         return 0;
     }
 
-    public class MyviewHolder extends RecyclerView.ViewHolder  {
+    public class MyviewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView displayname;
         TextView firstname;
         TextView lastname;
@@ -87,10 +87,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
             this.onNoteListener = onNoteListener;
 
         }
-//        @Override
-//        public void onClick(View v){
-//            onNoteListener.onNoteClick(getAdapterPosition());
-//        }
+      @Override
+      public void onClick(View v){
+            onNoteListener.onNoteClick(getAdapterPosition());
+        }
 
     }
     public interface OnNoteListener{
