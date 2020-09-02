@@ -34,13 +34,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FoldersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class FoldersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,FolderAdapter.OnNoteListener {
 
+    private static final String TAG = "FoldersActivity" ;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     public static RecyclerView recyclerView;
     public static FolderAdapter folderAdapter;
     public static Context context;
+    List<Folder> folderList;
+
 
 
     @Override
@@ -58,6 +61,8 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         recyclerView = (RecyclerView)findViewById(R.id.view_folders);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+
         folderAdapter = new FolderAdapter(getApplicationContext(), FolderService.folders);
         recyclerView.setAdapter(folderAdapter);
         FolderService.getAllFolders();
@@ -67,12 +72,16 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(FoldersActivity.this, CreateFolderActivity.class);
+              // intent.putExtra("folders", folderList.get(position));
                 startActivity(intent);
             }
         });
 
 
         }
+
+
+
 
 
 
@@ -125,6 +134,16 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         return false;
     }
 
+
+    @Override
+    public void onNoteClick(int position) {
+
+        Log.d(TAG, "onNoteClick: clicked");
+
+        Intent intent = new Intent(this, FolderActivity.class);
+        startActivity(intent);
+
     }
+}
 
 

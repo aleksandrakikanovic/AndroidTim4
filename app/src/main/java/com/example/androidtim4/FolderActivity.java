@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -11,11 +12,13 @@ import com.example.androidtim4.service.FolderService;
 
 public class FolderActivity extends AppCompatActivity {
     TextView name;
-
+    
+    private static final String TAG = "FolderActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
+        Log.d(TAG, "onCreate: called.");
     }
 
     @Override

@@ -20,12 +20,20 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
 
     Context context;
     List<Folder> folderList;
-
+    private OnNoteListener mOnNoteListener;
 
 
     public FolderAdapter(Context context, List<Folder> folderList) {
         this.context = context;
         this.folderList = folderList;
+
+
+
+
+    }
+    public FolderAdapter(List<Folder> folderList,OnNoteListener onNoteListener){
+        this.folderList=folderList;
+        this.mOnNoteListener= onNoteListener;
     }
 
     public void setFolderList(List<Folder> folderList) {
@@ -35,14 +43,14 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
 
     @Override
     public FolderAdapter.MyviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.folderview_adapter,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.folderview_adapter, parent, false);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FoldersActivity.context, "Will be implemented soon", Toast.LENGTH_SHORT).show();
             }
         });
-        return new MyviewHolder(view);
+        return new MyviewHolder(view,mOnNoteListener);
     }
 
     @Override
@@ -54,19 +62,34 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
 
     @Override
     public int getItemCount() {
-        if(folderList != null){
+        if (folderList != null) {
             return folderList.size();
         }
         return 0;
     }
 
-    public class MyviewHolder extends RecyclerView.ViewHolder {
-        TextView folder_name;
 
-        public MyviewHolder(View itemView) {
+    public class MyviewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        TextView folder_name;
+        OnNoteListener onNoteListener;
+
+        public MyviewHolder(View itemView,OnNoteListener onNoteListener) {
             super(itemView);
-            folder_name = (TextView)itemView.findViewById(R.id.textview_folderName);
+            folder_name = (TextView) itemView.findViewById(R.id.textview_folderName);
+            this.onNoteListener = onNoteListener;
+
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            onNoteListener.onNoteClick(getAdapterPosition());
         }
     }
+    public interface OnNoteListener {
+        void onNoteClick(int position);
+    }
 
-}
+    }
+
+
