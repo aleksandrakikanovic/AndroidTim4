@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,11 +27,12 @@ public class ContactActivity extends AppCompatActivity {
     TextView firstnameText;
     TextView lastnameText;
 
+    private static final String TAG = "ContactActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
-
+        Log.d(TAG,"onCreate: called.");
 
         TextView displayText = findViewById(R.id.displayName);
         Bundle bundle = getIntent().getExtras();

@@ -31,8 +31,9 @@ import java.util.List;
 import model.Contact;
 import model.EnumFormat;
 
-public class ContactsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class ContactsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ContactAdapter.OnNoteListener{
 
+    private static final String TAG = "ContactsActivity"
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     public static RecyclerView recyclerView;
@@ -116,7 +117,15 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         }
         return false;
     }
+    @Override
+    public void onNoteClick(int position) {
 
+        Log.d(TAG, "onNoteClick: clicked");
+
+        Intent intent = new Intent(this, ContactActivity.class);
+        startActivity(intent);
+
+    }
 
 
 }

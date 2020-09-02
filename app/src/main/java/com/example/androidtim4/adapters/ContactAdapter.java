@@ -20,11 +20,17 @@ import model.Contact;
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHolder> {
     Context context;
     List<Contact> contactList;
+    private OnNoteListener onNoteListener;
 
 
     public ContactAdapter(Context context, List<Contact> contactList) {
         this.context = context;
         this.contactList = contactList;
+    }
+
+    public ContactAdapter(List<Contact> contactList, ContactAdapter.OnNoteListener onNoteListener){
+        this.contactList = contactList;
+        this.onNoteListener = onNoteListener;
     }
 
     public void setContactList(List<Contact> contactList) {
@@ -42,7 +48,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
                 Toast.makeText(FoldersActivity.context, "xxx", Toast.LENGTH_SHORT).show();
             }
         });
-        return new MyviewHolder(view);
+        return new MyviewHolder(view,onNoteListener);
 
     }
 
@@ -69,18 +75,26 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
         TextView firstname;
         TextView lastname;
         TextView email;
+        ContactAdapter.OnNoteListener onNoteListener;
 
 
-        public MyviewHolder(View itemView) {
+        public MyviewHolder(View itemView, ContactAdapter.OnNoteListener onNoteListener) {
             super(itemView);
             displayname = (TextView) itemView.findViewById(R.id.textview_displayname);
             email = (TextView) itemView.findViewById(R.id.textview_email);
             firstname = (TextView) itemView.findViewById(R.id.textview_firstname);
             lastname = (TextView) itemView.findViewById(R.id.textview_lastname);
+            this.onNoteListener = onNoteListener;
 
         }
+        @Override
+        public void onClick(View v){
+            onNoteListener.onNoteClick(getAdapterPosition());
+        }
 
-
+    }
+    public interface OnNoteListener{
+        void onNoteClick(int postion);
     }
 }
 
