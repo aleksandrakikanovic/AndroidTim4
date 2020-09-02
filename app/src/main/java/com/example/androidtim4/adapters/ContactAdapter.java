@@ -87,10 +87,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
             this.onNoteListener = onNoteListener;
 
         }
-        @Override
-        public void onClick(View v){
-            onNoteListener.onNoteClick(getAdapterPosition());
-        }
+//        @Override
+//        public void onClick(View v){
+//            onNoteListener.onNoteClick(getAdapterPosition());
+//        }
 
     }
     public interface OnNoteListener{

@@ -10,7 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.androidtim4.adapters.AccountAdapter;
@@ -23,9 +28,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    public static RecyclerView recyclerView;
-    public static AccountAdapter accountAdapter;
     public static Context context;
+    public static ListView list;
+    public static ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +42,22 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_profile);
         navigationView.setNavigationItemSelectedListener(this);
-
-        recyclerView = (RecyclerView)findViewById(R.id.view_accounts);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        accountAdapter = new AccountAdapter(getApplicationContext(), AccountService.accounts);
-        recyclerView.setAdapter(accountAdapter);
-        AccountService.getAllAccounts(LoginActivity.loggedInUserUsername);
+        list = findViewById(R.id.listview_accounts);
+        adapter();
     }
+
+    public void adapter(){
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, AccountService.accounts);
+        list.setAdapter(arrayAdapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                UserAccountsActivity.loggedInAccountName = AccountService.accounts.get(position);
+                Log.d("tag", "account changed to: " + UserAccountsActivity.loggedInAccountName);
+            }
+        });
+    }
+
     @Override
     public void onStart() {
         super.onStart();

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,7 +34,7 @@ import model.EnumFormat;
 
 public class ContactsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ContactAdapter.OnNoteListener{
 
-    private static final String TAG = "ContactsActivity"
+    private static final String TAG = "ContactsActivity";
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     public static RecyclerView recyclerView;
