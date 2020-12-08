@@ -19,8 +19,8 @@ public interface MessageInterface {
             "Content-Type: application/json"
     })
 
-    @GET("/mail/messages")
-    Call<List<Message>> getMessages();
+    @GET("/mail/messages/all/{username}")
+    Call<List<Message>> getMessages(@Path("username") String username);
 
     @GET("/mail/messages/{id}")
     Call<Message> getMessage(@Path("id") int id);
