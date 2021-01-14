@@ -12,9 +12,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceUtil {
 
     private static Retrofit retrofit = null;
-    //Aleksandra 13,Nina 19 ili 24
+    //Aleksandra 13,Nina 15 ili 24
     //Jovana : 192.168.0.107
-      private static final String BASE_URL = "http://192.168.0.24:8080/mail/";
+      private static final String BASE_URL = "http://192.168.0.15:8080/mail/";
 
 
     public static Retrofit getRetrofit() {

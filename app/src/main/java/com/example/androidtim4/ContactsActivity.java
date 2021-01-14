@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
     public static RecyclerView recyclerView;
     public static ContactAdapter contactAdapter;
     List<Contact> contactList;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,7 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         recyclerView = (RecyclerView)findViewById(R.id.view_contacts);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        contactAdapter = new ContactAdapter(getApplicationContext(), ContactService.contacts);
+        contactAdapter = new ContactAdapter(getApplicationContext(), ContactService.contacts, this);
         recyclerView.setAdapter(contactAdapter);
         ContactService.getAllContacts();
 
@@ -118,10 +120,11 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         }
         return false;
     }
+    //ovde treba vrv neki atribut zbog bundle
     @Override
     public void onNoteClick(int position) {
 
-        Log.d(TAG, "onNoteClick: clicked");
+
 
         Intent intent = new Intent(this, ContactActivity.class);
         startActivity(intent);

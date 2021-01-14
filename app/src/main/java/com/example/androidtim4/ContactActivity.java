@@ -34,7 +34,7 @@ public class ContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact);
         Log.d(TAG,"onCreate: called.");
 
-        TextView displayText = findViewById(R.id.displayName);
+       /* TextView displayText = findViewById(R.id.displayName);
         Bundle bundle = getIntent().getExtras();
         Contact contact = (Contact) bundle.getSerializable("Contact");
         displayText.setText(contact.getDisplayname());
@@ -46,7 +46,7 @@ public class ContactActivity extends AppCompatActivity {
         lastnameText.setText(contact.getLastname());
 
         TextView emailText = findViewById(R.id.email_contact);
-        emailText.setText(contact.getEmail());
+        emailText.setText(contact.getEmail());*/
     }
 
     @Override

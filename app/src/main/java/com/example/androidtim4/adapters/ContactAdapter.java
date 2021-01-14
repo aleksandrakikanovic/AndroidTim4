@@ -20,18 +20,19 @@ import model.Contact;
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHolder> {
     Context context;
     List<Contact> contactList;
-    private OnNoteListener onNoteListener;
+    private OnNoteListener cOnNoteListener;
 
 
-    public ContactAdapter(Context context, List<Contact> contactList) {
+    public ContactAdapter(Context context, List<Contact> contactList, OnNoteListener onNoteListener) {
         this.context = context;
         this.contactList = contactList;
+        this.cOnNoteListener = onNoteListener;
     }
 
-    public ContactAdapter(List<Contact> contactList, ContactAdapter.OnNoteListener onNoteListener){
+   /* public ContactAdapter(List<Contact> contactList, ContactAdapter.OnNoteListener onNoteListener){
         this.contactList = contactList;
         this.onNoteListener = onNoteListener;
-    }
+    }*/
 
     public void setContactList(List<Contact> contactList) {
         this.contactList = contactList;
@@ -48,7 +49,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
                 Toast.makeText(FoldersActivity.context, "xxx", Toast.LENGTH_SHORT).show();
             }
         });
-        return new MyviewHolder(view,onNoteListener);
+        return new MyviewHolder(view,cOnNoteListener);
 
     }
 
@@ -85,6 +86,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyviewHo
             firstname = (TextView) itemView.findViewById(R.id.textview_firstname);
             lastname = (TextView) itemView.findViewById(R.id.textview_lastname);
             this.onNoteListener = onNoteListener;
+            itemView.setOnClickListener(this);
 
         }
       @Override
