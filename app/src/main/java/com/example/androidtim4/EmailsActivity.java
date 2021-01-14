@@ -63,7 +63,7 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
         recyclerView.setLayoutManager(layoutManager);
         emailAdapter = new EmailAdapter(getApplicationContext(), MessageService.messages);
         recyclerView.setAdapter(emailAdapter);
-        MessageService.getAllMessages();
+        MessageService.getAllMessages("a");
 
        // registerReceiver(SplashActivity.receiver, SplashActivity.filter);
     }

@@ -4,10 +4,13 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.app.ComponentActivity;
+
 import com.example.androidtim4.CreateEmailActivity;
 import com.example.androidtim4.EmailActivity;
 import com.example.androidtim4.EmailsActivity;
 import com.example.androidtim4.LoginActivity;
+import com.example.androidtim4.UserAccountsActivity;
 import com.example.androidtim4.serviceInterface.MessageInterface;
 
 import java.util.ArrayList;
@@ -25,8 +28,12 @@ public class MessageService {
     public static boolean deleted = false;
     public static boolean moved = false;
 
-    public static List<Message> getAllMessages(){
-        Call<List<Message>> call = messageInterface.getMessages();
+
+
+//    OVDE SALJEM PARAMETAR iz userAccountsActivity (vrv sada nece raditi)
+    public static List<Message> getAllMessages(String loggedInAccountName){
+//        U 36. liniji proslediti loggedInAccountName
+        Call<List<Message>> call = messageInterface.getMessages("a");
         call.enqueue(new Callback<List<Message>>() {
             @Override
             public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
@@ -40,7 +47,8 @@ public class MessageService {
             public void onFailure(Call<List<Message>> call, Throwable t) {
                 Log.d("TAG","Response = " + t.toString());
             }
-        }); return messages;
+        });
+        return messages;
     }
 
     public static void sendMail(String to, String cc, String bcc, String subject, String content){
