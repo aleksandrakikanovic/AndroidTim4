@@ -51,7 +51,7 @@ public class UserAccountsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 loggedInAccountName = AccountService.accounts.get(position);
                 Log.d("tag", "this is acc name: " + loggedInAccountName);
-                Intent intent = new Intent(UserAccountsActivity.this, EmailsActivity.class);
+                Intent intent = new Intent(UserAccountsActivity.this, FoldersActivity.class);
                 startActivity(intent);
             }
         });

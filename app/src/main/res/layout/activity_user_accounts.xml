@@ -28,7 +28,7 @@
         android:layout_marginTop="116dp"
         android:layout_marginEnd="127dp"
         android:layout_marginBottom="116dp"
-        android:text="Button"
+        android:text="Add account"
         android:textStyle="bold"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/view_user_accounts"

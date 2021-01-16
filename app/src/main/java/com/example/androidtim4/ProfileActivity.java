@@ -54,6 +54,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserAccountsActivity.loggedInAccountName = AccountService.accounts.get(position);
                 Log.d("tag", "account changed to: " + UserAccountsActivity.loggedInAccountName);
+                Toast.makeText(getApplicationContext(), "Your account has been changed", Toast.LENGTH_SHORT);
+                Intent intent = new Intent(ProfileActivity.this, EmailsActivity.class);
+                startActivity(intent);
             }
         });
     }

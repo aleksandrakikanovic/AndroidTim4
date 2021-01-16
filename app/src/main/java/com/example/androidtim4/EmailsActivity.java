@@ -61,10 +61,13 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
         recyclerView = (RecyclerView)findViewById(R.id.view_emails);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        emailAdapter = new EmailAdapter(getApplicationContext(), MessageService.messages);
-        recyclerView.setAdapter(emailAdapter);
-        MessageService.getAllMessages("a");
-
+        if(UserAccountsActivity.loggedInAccountName!="" || UserAccountsActivity.loggedInAccountName!= null){
+            emailAdapter = new EmailAdapter(getApplicationContext(), MessageService.messages);
+            recyclerView.setAdapter(emailAdapter);
+            MessageService.getAllMessages(UserAccountsActivity.loggedInAccountName);
+        }else {
+            Toast.makeText(getApplicationContext(), "Please log in to continue", Toast.LENGTH_SHORT).show();
+        }
        // registerReceiver(SplashActivity.receiver, SplashActivity.filter);
     }
 
@@ -111,6 +114,7 @@ public class EmailsActivity extends AppCompatActivity implements NavigationView.
             Intent intent = new Intent(EmailsActivity.this, FoldersActivity.class);
             startActivity(intent);
         }else if (id == R.id.logout){
+            UserAccountsActivity.loggedInAccountName = "";
             Intent intent = new Intent(EmailsActivity.this, LoginActivity.class);
             startActivity(intent);
         }

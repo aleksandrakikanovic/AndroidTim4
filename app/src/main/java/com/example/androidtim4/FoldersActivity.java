@@ -45,7 +45,6 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
     public static Context context;
     private List<Folder> folderList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,13 +60,14 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         recyclerView = (RecyclerView)findViewById(R.id.view_folders);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-
-       // folderAdapter = new FolderAdapter(getApplicationContext(), FolderService.folders);
-        folderAdapter = new FolderAdapter(getApplicationContext(),FolderService.folders, this);
-        recyclerView.setAdapter(folderAdapter);
-        FolderService.getAllFolders();
-
+        // folderAdapter = new FolderAdapter(getApplicationContext(), FolderService.folders);
+        if(UserAccountsActivity.loggedInAccountName!="" || UserAccountsActivity.loggedInAccountName!= null){
+            folderAdapter = new FolderAdapter(getApplicationContext(),FolderService.folders, this);
+            recyclerView.setAdapter(folderAdapter);
+            FolderService.getAllFolders();
+        }else {
+            Toast.makeText(getApplicationContext(), "Please log in to continue", Toast.LENGTH_SHORT).show();
+        }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +139,7 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
     @Override
     public void onNoteClick( int position) {
         //TextView name = view.findViewById(R.id.textview_folderName);
+        Log.d("add","opening folder");
         Intent intent = new Intent(this, FolderActivity.class);
         //intent.putExtra("name", name.getText());
         startActivity(intent);

@@ -19,8 +19,8 @@ public interface FolderInterface {
             "Content-Type: application/json"
     })
 
-    @GET("/mail/folders")
-    Call<List<Folder>> getFolders();
+    @GET("/mail/folders/{account_name}")
+    Call<List<Folder>> getFolders(@Path("account_name") String account_name);
 
     @GET("/mail/folders/{id}")
     Call<Folder> getFolder(@Path("id") int id);

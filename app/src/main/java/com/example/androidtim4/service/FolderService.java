@@ -5,6 +5,7 @@ import android.widget.Toast;
 import com.example.androidtim4.CreateFolderActivity;
 import com.example.androidtim4.FoldersActivity;
 import com.example.androidtim4.LoginActivity;
+import com.example.androidtim4.UserAccountsActivity;
 import com.example.androidtim4.serviceInterface.FolderInterface;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class FolderService {
     }
 
     public static List<Folder> getAllFolders() {
-        Call<List<Folder>> call = folderInterface.getFolders();
+        Call<List<Folder>> call = folderInterface.getFolders(UserAccountsActivity.loggedInAccountName);
         call.enqueue(new Callback<List<Folder>>() {
             @Override
             public void onResponse(Call<List<Folder>> call, Response<List<Folder>> response) {

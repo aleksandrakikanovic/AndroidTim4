@@ -23,7 +23,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.androidtim4.adapters.ContactAdapter;
+import com.example.androidtim4.adapters.FolderAdapter;
 import com.example.androidtim4.service.ContactService;
+import com.example.androidtim4.service.FolderService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -57,10 +59,13 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
         recyclerView = (RecyclerView)findViewById(R.id.view_contacts);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        contactAdapter = new ContactAdapter(getApplicationContext(), ContactService.contacts, this);
-        recyclerView.setAdapter(contactAdapter);
-        ContactService.getAllContacts();
-
+        if(UserAccountsActivity.loggedInAccountName!="" || UserAccountsActivity.loggedInAccountName!= null){
+            contactAdapter = new ContactAdapter(getApplicationContext(), ContactService.contacts, this);
+            recyclerView.setAdapter(contactAdapter);
+            ContactService.getAllContacts();
+        }else {
+            Toast.makeText(getApplicationContext(), "Please log in to continue", Toast.LENGTH_SHORT).show();
+        }
         FloatingActionButton fabc = (FloatingActionButton) findViewById(R.id.fabc);
         fabc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +120,7 @@ public class ContactsActivity extends AppCompatActivity implements NavigationVie
             Intent intent = new Intent(ContactsActivity.this, FoldersActivity.class);
             startActivity(intent);
         }else if (id == R.id.logout) {
+            UserAccountsActivity.loggedInAccountName = "";
             Intent intent = new Intent(ContactsActivity.this, LoginActivity.class);
             startActivity(intent);
         }

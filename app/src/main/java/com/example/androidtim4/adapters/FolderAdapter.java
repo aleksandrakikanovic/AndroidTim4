@@ -23,13 +23,10 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
     private OnNoteListener mOnNoteListener;
     List<Folder> folderList;
 
-
     public FolderAdapter(Context context,List<Folder> folderList,OnNoteListener onNoteListener) {
         this.context = context;
         this.folderList = folderList;
         this.mOnNoteListener = onNoteListener;
-
-
     }
 
     public FolderAdapter(List<Folder> folderList) {
