@@ -3,22 +3,42 @@ package com.example.androidtim4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.androidtim4.service.FolderService;
 
+
+import java.util.List;
+
+import model.Folder;
+
+
 public class FolderActivity extends AppCompatActivity {
     TextView name;
-    
+    private Folder mFolder, previewFolder;
+
+    private List<Folder> childFolders;
+
+
+
+
     private static final String TAG = "FolderActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
+
         Log.d(TAG, "onCreate: called.");
+        mFolder = (Folder) getIntent().getSerializableExtra("folder");
+        String folderName = (!mFolder.getFolder_name().isEmpty()) ? mFolder.getFolder_name() : "";
+        System.out.println(folderName);
+        getSupportActionBar().setTitle(folderName);
+
     }
 
     @Override
