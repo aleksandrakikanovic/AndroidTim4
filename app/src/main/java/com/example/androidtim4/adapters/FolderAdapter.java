@@ -23,11 +23,17 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
     private OnNoteListener mOnNoteListener;
     List<Folder> folderList;
 
+    public FolderAdapter(Context context,List<Folder> folderList){
+        this.context= context;
+        this.folderList=folderList;
+    }
+    //proba
     public FolderAdapter(Context context,List<Folder> folderList,OnNoteListener onNoteListener) {
         this.context = context;
         this.folderList = folderList;
         this.mOnNoteListener = onNoteListener;
     }
+
 
     public FolderAdapter(List<Folder> folderList) {
         this.folderList = folderList;
@@ -37,6 +43,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
         this.folderList = folderList;
         notifyDataSetChanged();
     }
+
 
     @Override
     public FolderAdapter.MyviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -52,6 +59,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.MyviewHold
 
     @Override
     public void onBindViewHolder(FolderAdapter.MyviewHolder holder, int position) {
+
         holder.folder_name.setText(folderList.get(position).getFolder_name());
 
     }

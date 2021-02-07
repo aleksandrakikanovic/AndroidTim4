@@ -143,7 +143,7 @@ public class FoldersActivity extends AppCompatActivity implements NavigationView
         Log.d("add","opening folder");
         Intent intent = new Intent(this, FolderActivity.class);
         //intent.putExtra("name", name.getText());
-        previewFolder = folderList.get(position);
+        previewFolder = FolderService.folders.get(position);
 
         intent.putExtra("folder", previewFolder);
         startActivity(intent);

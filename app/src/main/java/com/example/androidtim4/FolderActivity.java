@@ -1,7 +1,10 @@
 package com.example.androidtim4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,7 +13,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.androidtim4.adapters.EmailAdapter;
+import com.example.androidtim4.adapters.FolderAdapter;
+import com.example.androidtim4.adapters.FolderMessAdapter;
 import com.example.androidtim4.service.FolderService;
+import com.example.androidtim4.service.MessageService;
 
 
 import java.util.List;
@@ -18,12 +25,16 @@ import java.util.List;
 import model.Folder;
 
 
-public class FolderActivity extends AppCompatActivity {
+public class FolderActivity extends AppCompatActivity  {
     TextView name;
-    private Folder mFolder, previewFolder;
+    private Folder mFolder;
+    public static Context context;
 
-    private List<Folder> childFolders;
-
+    public static RecyclerView recyclerView;
+    public static FolderAdapter folderAdapter;
+    private List<Folder> folderList;
+    public static EmailAdapter emailAdapter;
+    public static FolderMessAdapter folderMessAdapter;
 
 
 
@@ -32,12 +43,22 @@ public class FolderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
+        recyclerView = findViewById(R.id.recyViewFolder);
 
         Log.d(TAG, "onCreate: called.");
         mFolder = (Folder) getIntent().getSerializableExtra("folder");
         String folderName = (!mFolder.getFolder_name().isEmpty()) ? mFolder.getFolder_name() : "";
         System.out.println(folderName);
-        getSupportActionBar().setTitle(folderName);
+      // ovde prikazuje error getSupportActionBar().setTitle(folderName);
+        FolderService.getFolderMess(mFolder.getFolder_id());
+
+
+
+      //  folderAdapter = new FolderAdapter(getApplicationContext(),FolderService.folders);
+        folderMessAdapter = new FolderMessAdapter(getApplicationContext(),MessageService.messages);
+        //emailAdapter = new EmailAdapter(getApplicationContext(), MessageService.messages);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

@@ -30,6 +30,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/folder_toolbar_menu" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyViewFolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:layout_marginTop="20dp"/>
+
+        </FrameLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
